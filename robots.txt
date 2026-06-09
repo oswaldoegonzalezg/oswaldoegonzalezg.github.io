@@ -1,5 +1,0 @@
-﻿User-agent: *
-Allow: /
-
-Sitemap: https://oswaldoegonzalezg.github.io/sitemap.xml
-
