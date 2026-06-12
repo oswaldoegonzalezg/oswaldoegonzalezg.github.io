@@ -1571,9 +1571,22 @@
       if (e.key === 'Escape' && mainNav.classList.contains('menu-open')) closeDrawer();
     });
 
+    // Scroll limpio a una sección sin dejar hash en la URL
+    function scrollToSection(href) {
+      if (href === '#inicio') {
+        scrollToTopInstant();
+      } else {
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }
+      history.replaceState(null, '', window.location.pathname);
+    }
+
     document.querySelectorAll('.drawer-link').forEach(link => {
       link.addEventListener('click', e => {
-        // Marca inmediatamente el ítem como activo (igual que desktop)
+        e.preventDefault();
+
+        // Marca inmediatamente el ítem como activo
         document.querySelectorAll('.drawer-link').forEach(a => a.classList.remove('nav-active'));
         link.classList.add('nav-active');
 
@@ -1586,26 +1599,18 @@
           drawerHasSub && drawerHasSub.classList.remove('casos-active');
         }
 
-        // Para #inicio: scroll manual sin dejar el hash en el URL
-        // Evita que Safari al refrescar salte al anchor y rompa la posición
-        if (href === '#inicio') {
-          e.preventDefault();
-          closeDrawer();
-          scrollToTopInstant();
-          history.replaceState(null, '', window.location.pathname + window.location.search);
-          return;
-        }
-
         closeDrawer();
+        setTimeout(() => scrollToSection(href), 260);
       });
     });
 
-    // Lo mismo para el logo y links de desktop que apuntan a #inicio
-    document.querySelectorAll('a[href="#inicio"]:not(.drawer-link):not(.skip-link)').forEach(link => {
+    // Desktop nav y logo — todos los links internos quedan sin hash
+    document.querySelectorAll('.nav-links a, .nav-dropdown a, a.nav-logo').forEach(link => {
+      const href = link.getAttribute('href');
+      if (!href || !href.startsWith('#')) return;
       link.addEventListener('click', e => {
         e.preventDefault();
-        scrollToTopInstant();
-        history.replaceState(null, '', window.location.pathname + window.location.search);
+        scrollToSection(href);
       });
     });
 
