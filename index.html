@@ -1613,22 +1613,21 @@
     const marqueeTrack = document.querySelector('.marquee-track');
     if (marqueeTrack) {
       const px = marqueeTrack.scrollWidth / 2;
-      const duration = Math.round(px / 60 * 10) / 10;
+      const duration = Math.round(px / 30 * 10) / 10;
       marqueeTrack.style.setProperty('--marquee-duration', duration + 's');
     }
 
     /* ── Bloquear descarga de imágenes protegidas (desktop y móvil) ── */
+    /* Nota: touchstart/touchend removidos — bloqueaban el scroll en iOS.
+       La protección táctil la da -webkit-touch-callout:none en CSS. */
     document.querySelectorAll('.acerca-bg img, .acerca-photo img, .email-thumb img, .hero-bg img, .victor-img-wrap img, .pauta-img-wrap img, .vacc-comments img, .vacc-video-wrap img, .yt-facade img, .victor-stage-imgs img').forEach(img => {
       img.addEventListener('contextmenu', e => e.preventDefault());
-      img.addEventListener('touchstart', e => { e.preventDefault(); }, { passive: false });
-      img.addEventListener('touchend', e => e.preventDefault());
       img.addEventListener('dragstart', e => e.preventDefault());
       img.draggable = false;
     });
     const lightboxImg = document.getElementById('lightbox-img');
     if (lightboxImg) {
       lightboxImg.addEventListener('contextmenu', e => e.preventDefault());
-      lightboxImg.addEventListener('touchstart', e => { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
       lightboxImg.draggable = false;
     }
 
