@@ -1,5 +1,5 @@
-# robots.txt — oswaldoegonzalezg.github.io
-# Generado: 2026-06-09
+# robots.txt — oswaldoegonzalezg.vercel.app
+# Actualizado: 2026-06-11
 
 # Permitir todos los crawlers (Google, Bing, IA)
 User-agent: *
