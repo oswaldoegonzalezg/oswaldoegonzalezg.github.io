@@ -1503,7 +1503,8 @@
     const marqueeTrack = document.querySelector('.marquee-track');
     if (marqueeTrack) {
       const px = marqueeTrack.scrollWidth / 2;
-      const duration = Math.round(px / 30 * 10) / 10;
+      const speed = window.innerWidth <= 768 ? 15 : 30;
+      const duration = Math.round(px / speed * 10) / 10;
       marqueeTrack.style.setProperty('--marquee-duration', duration + 's');
     }
 
