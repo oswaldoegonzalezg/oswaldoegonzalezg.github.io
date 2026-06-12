@@ -1618,7 +1618,7 @@
     }
 
     /* ── Bloquear descarga de imágenes protegidas (desktop y móvil) ── */
-    document.querySelectorAll('.acerca-bg img, .acerca-photo img, .email-thumb img, .hero-bg img, .victor-img-wrap img').forEach(img => {
+    document.querySelectorAll('.acerca-bg img, .acerca-photo img, .email-thumb img, .hero-bg img, .victor-img-wrap img, .pauta-img-wrap img, .vacc-comments img, .vacc-video-wrap img, .yt-facade img, .victor-stage-imgs img').forEach(img => {
       img.addEventListener('contextmenu', e => e.preventDefault());
       img.addEventListener('touchstart', e => { e.preventDefault(); }, { passive: false });
       img.addEventListener('touchend', e => e.preventDefault());
