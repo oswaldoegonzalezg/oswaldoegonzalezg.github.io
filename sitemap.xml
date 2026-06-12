@@ -4,58 +4,58 @@
 
   <!-- Página principal -->
   <url>
-    <loc>https://oswaldoegonzalezg.github.io/</loc>
+    <loc>https://oswaldoegonzalezg.vercel.app/</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://oswaldoegonzalezg.github.io/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://oswaldoegonzalezg.vercel.app/" />
   </url>
 
   <!-- Secciones con rutas limpias -->
   <url>
-    <loc>https://oswaldoegonzalezg.github.io/acerca</loc>
+    <loc>https://oswaldoegonzalezg.vercel.app/acerca</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://oswaldoegonzalezg.github.io/casos</loc>
+    <loc>https://oswaldoegonzalezg.vercel.app/casos</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://oswaldoegonzalezg.github.io/tiendasvictor</loc>
+    <loc>https://oswaldoegonzalezg.vercel.app/tiendasvictor</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://oswaldoegonzalezg.github.io/imageworks</loc>
+    <loc>https://oswaldoegonzalezg.vercel.app/imageworks</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://oswaldoegonzalezg.github.io/herramientas</loc>
+    <loc>https://oswaldoegonzalezg.vercel.app/herramientas</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://oswaldoegonzalezg.github.io/faq</loc>
+    <loc>https://oswaldoegonzalezg.vercel.app/faq</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://oswaldoegonzalezg.github.io/contacto</loc>
+    <loc>https://oswaldoegonzalezg.vercel.app/contacto</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>

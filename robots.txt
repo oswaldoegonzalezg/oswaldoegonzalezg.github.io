@@ -25,4 +25,4 @@ User-agent: Google-Extended
 Allow: /
 
 # Sitemap
-Sitemap: https://oswaldoegonzalezg.github.io/sitemap.xml
+Sitemap: https://oswaldoegonzalezg.vercel.app/sitemap.xml
