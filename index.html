@@ -11,7 +11,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e8001d'/><text x='16' y='23' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='18' fill='white'>OG</text></svg>">
 
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E1YY3DT5JJ"></script>
+  <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-E1YY3DT5JJ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -360,7 +360,17 @@
   <!-- Imagen hero — carga anticipada para evitar LCP tardío -->
   <link rel="preload" href="assets/images/bogota.webp" as="image" fetchpriority="high">
 
-  <link rel="stylesheet" href="styles.css">
+  <!-- CSS crítico inline para evitar render-blocking -->
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0a;--surface:#111111;--border:#242424;--accent:#e8001d;--accent-dim:rgba(232,0,29,0.12);--accent-btn-text:#ffffff;--text:#e8e8e8;--muted:#888;--white:#ffffff;--nav-bg:rgba(12,12,12,0.94);--nav-border:rgba(255,255,255,0.08);--font:'TTCommons','Inter',system-ui,sans-serif;--font-display:'Hanson','TTCommons',sans-serif;--mono:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;--max:1080px;--radius:12px}
+    :root.light{--bg:#f7f7f5;--surface:#ffffff;--border:#dededb;--accent:#e8001d;--accent-dim:rgba(232,0,29,0.08);--accent-btn-text:#ffffff;--text:#111111;--muted:#666666;--white:#111111;--nav-bg:rgba(247,247,245,0.96);--nav-border:rgba(0,0,0,0.1)}
+    html{scroll-behavior:smooth;scroll-padding-top:48px;-webkit-text-size-adjust:100%;text-size-adjust:100%;background-color:var(--bg)}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh}
+  </style>
+  <!-- CSS completo — carga no bloqueante -->
+  <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css"></noscript>
 
 </head>
 
@@ -740,7 +750,10 @@
                   </button>
                   <div class="vacc-body" id="vacc-body-1"><div class="vacc-body-inner">
                     <div class="vacc-video-wrap vacc-vertical">
-                      <iframe src="https://www.youtube.com/embed/H5ruYifutco" title="Style Session con Diana" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                      <div class="yt-facade" data-id="H5ruYifutco" data-title="Style Session con Diana">
+                        <img src="https://i.ytimg.com/vi/H5ruYifutco/hqdefault.jpg" alt="Style Session con Diana" loading="lazy" draggable="false">
+                        <button class="yt-play" aria-label="Reproducir Style Session con Diana">&#9654;</button>
+                      </div>
                     </div>
                     <div class="vacc-extras">
                       <p class="vacc-section-label">Comentarios</p>
@@ -776,7 +789,10 @@
                   </button>
                   <div class="vacc-body" id="vacc-body-2"><div class="vacc-body-inner">
                     <div class="vacc-video-wrap vacc-vertical">
-                      <iframe src="https://www.youtube.com/embed/u6VEn0_HhoY" title="Campaña Navidad Petfriends" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                      <div class="yt-facade" data-id="u6VEn0_HhoY" data-title="Campaña Navidad Petfriends">
+                        <img src="https://i.ytimg.com/vi/u6VEn0_HhoY/hqdefault.jpg" alt="Campaña Navidad Petfriends" loading="lazy" draggable="false">
+                        <button class="yt-play" aria-label="Reproducir Campaña Navidad Petfriends">&#9654;</button>
+                      </div>
                     </div>
                     <div class="vacc-extras">
                       <p class="vacc-section-label">Comentarios</p>
@@ -812,7 +828,10 @@
                   </button>
                   <div class="vacc-body" id="vacc-body-3"><div class="vacc-body-inner">
                     <div class="vacc-video-wrap vacc-horizontal">
-                      <iframe src="https://www.youtube.com/embed/7r_rEDEEXvc" title="11 QA with Diana Henao - Directora de Arte Victor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                      <div class="yt-facade" data-id="7r_rEDEEXvc" data-title="11 QA with Diana Henao - Directora de Arte Victor">
+                        <img src="https://i.ytimg.com/vi/7r_rEDEEXvc/hqdefault.jpg" alt="11 QA with Diana Henao - Directora de Arte Victor" loading="lazy" draggable="false">
+                        <button class="yt-play" aria-label="Reproducir 11 QA with Diana Henao">&#9654;</button>
+                      </div>
                     </div>
                     <div class="vacc-extras">
                       <p class="vacc-section-label vacc-section-label--center">Comentarios</p>
@@ -903,14 +922,10 @@
                 <div class="pauta-item">
                   <p class="pauta-label">Video de pauta</p>
                   <div class="pauta-video-wrap">
-                    <iframe
-                      src="https://www.youtube.com/embed/5q-5VOBwh-0"
-                      title="Video Anuncio — Image Works"
-                                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerpolicy="strict-origin-when-cross-origin"
-                      allowfullscreen
-                      loading="lazy"
-                    ></iframe>
+                    <div class="yt-facade" data-id="5q-5VOBwh-0" data-title="Video Anuncio — Image Works">
+                      <img src="https://i.ytimg.com/vi/5q-5VOBwh-0/hqdefault.jpg" alt="Video Anuncio — Image Works" loading="lazy" draggable="false">
+                      <button class="yt-play" aria-label="Reproducir Video Anuncio Image Works">&#9654;</button>
+                    </div>
                   </div>
                 </div>
                 <div class="pauta-item">
@@ -1687,6 +1702,24 @@
           btn.setAttribute('aria-expanded', 'true');
           body.style.maxHeight = body.scrollHeight + 'px';
         }
+      });
+    });
+  </script>
+
+  <script>
+    document.querySelectorAll('.yt-facade').forEach(function(facade) {
+      facade.addEventListener('click', function() {
+        var id = facade.dataset.id;
+        var title = facade.dataset.title;
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1';
+        iframe.title = title;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+        iframe.allowFullscreen = true;
+        iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+        facade.innerHTML = '';
+        facade.appendChild(iframe);
       });
     });
   </script>
