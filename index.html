@@ -1618,9 +1618,11 @@
     }
 
     /* ── Bloquear descarga de imágenes protegidas (desktop y móvil) ── */
-    document.querySelectorAll('.acerca-bg img, .email-thumb img, .hero-bg img, .victor-img-wrap img').forEach(img => {
+    document.querySelectorAll('.acerca-bg img, .acerca-photo img, .email-thumb img, .hero-bg img, .victor-img-wrap img').forEach(img => {
       img.addEventListener('contextmenu', e => e.preventDefault());
-      img.addEventListener('touchstart', e => { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
+      img.addEventListener('touchstart', e => { e.preventDefault(); }, { passive: false });
+      img.addEventListener('touchend', e => e.preventDefault());
+      img.addEventListener('dragstart', e => e.preventDefault());
       img.draggable = false;
     });
     const lightboxImg = document.getElementById('lightbox-img');
