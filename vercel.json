@@ -1,4 +1,11 @@
 {
+  "rewrites": [
+    { "source": "/acerca",       "destination": "/index.html" },
+    { "source": "/casos",        "destination": "/index.html" },
+    { "source": "/herramientas", "destination": "/index.html" },
+    { "source": "/faq",          "destination": "/index.html" },
+    { "source": "/contacto",     "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",

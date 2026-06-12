@@ -1188,6 +1188,26 @@
   </footer>
 
   <script>
+    /* ── Mapa de rutas limpias ── */
+    const sectionPaths = {
+      '#inicio':        '/',
+      '#acerca':        '/acerca',
+      '#casos':         '/casos',
+      '#caso-victor':   '/casos',
+      '#caso-imageworks': '/casos',
+      '#herramientas':  '/herramientas',
+      '#faq':           '/faq',
+      '#contacto':      '/contacto'
+    };
+    const pathToHref = {
+      '/':             '#inicio',
+      '/acerca':       '#acerca',
+      '/casos':        '#casos',
+      '/herramientas': '#herramientas',
+      '/faq':          '#faq',
+      '/contacto':     '#contacto'
+    };
+
     /* ── Scroll restoration — forzar top en carga y en pull-to-refresh móvil ── */
     function scrollToTopInstant() {
       document.documentElement.style.scrollBehavior = 'auto';
@@ -1198,9 +1218,37 @@
         document.body.style.scrollBehavior = '';
       });
     }
-    scrollToTopInstant();
-    window.addEventListener('pageshow', scrollToTopInstant);
-    window.addEventListener('load', scrollToTopInstant);
+
+    // Solo forzar top si la ruta es / (no si es /acerca etc.)
+    const _initPath = window.location.pathname.replace(/\/$/, '') || '/';
+    if (_initPath === '/') {
+      scrollToTopInstant();
+      window.addEventListener('pageshow', e => { if (_initPath === '/') scrollToTopInstant(); });
+      window.addEventListener('load', () => { if (_initPath === '/') scrollToTopInstant(); });
+    } else {
+      // Carga directa de ruta como /acerca → scroll a la sección
+      window.addEventListener('load', () => {
+        const href = pathToHref[_initPath];
+        if (href && href !== '#inicio') {
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'instant' });
+        }
+      });
+    }
+
+    // Estado inicial en history
+    history.replaceState({ href: pathToHref[_initPath] || '#inicio' }, '', window.location.pathname);
+
+    // Back / Forward del navegador
+    window.addEventListener('popstate', e => {
+      const href = (e.state && e.state.href) || '#inicio';
+      if (href === '#inicio') {
+        scrollToTopInstant();
+      } else {
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
 
     /* ── Scroll reveal ── */
     const revealObs = new IntersectionObserver(
@@ -1571,15 +1619,16 @@
       if (e.key === 'Escape' && mainNav.classList.contains('menu-open')) closeDrawer();
     });
 
-    // Scroll limpio a una sección sin dejar hash en la URL
+    // Scroll limpio a una sección con ruta limpia en la URL
     function scrollToSection(href) {
+      const path = sectionPaths[href] || '/';
       if (href === '#inicio') {
         scrollToTopInstant();
       } else {
         const target = document.querySelector(href);
         if (target) target.scrollIntoView({ behavior: 'smooth' });
       }
-      history.replaceState(null, '', window.location.pathname);
+      history.pushState({ href }, '', path);
     }
 
     document.querySelectorAll('.drawer-link').forEach(link => {
