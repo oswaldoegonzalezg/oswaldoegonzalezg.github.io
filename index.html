@@ -1118,8 +1118,8 @@
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
     document.querySelectorAll('.metric').forEach(el => { el.classList.add('reveal'); revealObs.observe(el); });
     document.querySelectorAll('.section-num').forEach(el => {
-      const section = el.closest('section');
-      if (section) section.dataset.num = el.textContent.trim();
+      const label = el.closest('.section-label');
+      if (label) label.dataset.num = el.textContent.trim();
     });
 
     /* ── Sección activa en nav (scroll-based, más preciso) ── */
