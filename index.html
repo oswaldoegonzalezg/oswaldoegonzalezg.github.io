@@ -1516,17 +1516,7 @@
         }
 
         closeDrawer();
-        setTimeout(() => {
-          scrollToSection(href);
-          const target = document.querySelector(href);
-          if (target) {
-            const heading = target.querySelector('h1,h2,h3');
-            if (heading) {
-              heading.setAttribute('tabindex', '-1');
-              heading.focus({ preventScroll: true });
-            }
-          }
-        }, 310);
+        setTimeout(() => { scrollToSection(href); }, 310);
       });
     });
 
