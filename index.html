@@ -11,7 +11,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23e8001d'/><text x='16' y='23' text-anchor='middle' font-family='sans-serif' font-weight='900' font-size='18' fill='white'>OG</text></svg>">
 
   <!-- Google tag (gtag.js) -->
-  <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-E1YY3DT5JJ"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E1YY3DT5JJ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -204,6 +204,7 @@
   <!-- CSS crítico inline para evitar render-blocking -->
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    /* MIRROR INTENCIONAL de :root en styles.css — necesario para anti-FOUC. Actualizar ambos juntos. */
     :root{--bg:#0a0a0a;--surface:#111111;--border:#242424;--accent:#e8001d;--accent-dim:rgba(232,0,29,0.12);--accent-btn-text:#ffffff;--text:#e8e8e8;--muted:#888;--white:#ffffff;--nav-bg:rgba(12,12,12,0.94);--nav-border:rgba(255,255,255,0.08);--font:'TTCommons','Inter',system-ui,sans-serif;--font-display:'Hanson','TTCommons',sans-serif;--mono:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;--max:1080px;--radius:12px}
     :root.light{--bg:#f7f7f5;--surface:#ffffff;--border:#dededb;--accent:#e8001d;--accent-dim:rgba(232,0,29,0.08);--accent-btn-text:#ffffff;--text:#111111;--muted:#666666;--white:#111111;--nav-bg:rgba(247,247,245,0.96);--nav-border:rgba(0,0,0,0.1)}
     html{scroll-behavior:smooth;scroll-padding-top:48px;-webkit-text-size-adjust:100%;text-size-adjust:100%;background-color:var(--bg)}
@@ -265,7 +266,7 @@
         <!-- Toggle modo claro/oscuro — solo ícono -->
         <button id="theme-toggle" aria-label="Cambiar modo">
           <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="5"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" style="display:none"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+          <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" class="icon-hidden"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
         </button>
         <!-- Hamburguesa (solo móvil) -->
         <button class="nav-hamburger" id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false">
@@ -405,7 +406,7 @@
         <p class="section-desc reveal">Casos reales de marketing digital con resultados medibles. Crecimiento orgánico en Instagram, pauta en Facebook Ads y email marketing para marcas en Colombia y otros países.</p>
 
         <!-- CASO 1 -->
-        <article id="caso-victor" class="case-card reveal" style="margin-top:48px;" aria-labelledby="case1-title">
+        <article id="caso-victor" class="case-card reveal case-card--first" aria-labelledby="case1-title">
 
           <div class="case-badge" aria-label="Caso de estudio 01">Caso 01</div>
           <h3 class="case-client" id="case1-title">Tiendas Victor · Henao Pugliese</h3>
@@ -486,15 +487,17 @@
                   </div>
                   <div class="victor-stage-imgs">
                     <div class="victor-img-wrap" role="button" tabindex="0"
-                      onclick="openLightbox('assets/metricas_victor/Jul - Ago 2025 Reach Instagram.webp','Alcance · 30 días',[{src:'assets/metricas_victor/Jul - Ago 2025 Reach Instagram.webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 30 días (jul–ago 2025)'},{src:'assets/metricas_victor/Jul - Oct Reach IG .webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 3 meses (jul–oct 2025)'},{src:'assets/metricas_victor/Jul 2025 - Ene 2026 IG Reach.webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)'}])"
-                      onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/metricas_victor/Jul - Ago 2025 Reach Instagram.webp','Alcance · 30 días',[{src:'assets/metricas_victor/Jul - Ago 2025 Reach Instagram.webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 30 días (jul–ago 2025)'},{src:'assets/metricas_victor/Jul - Oct Reach IG .webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 3 meses (jul–oct 2025)'},{src:'assets/metricas_victor/Jul 2025 - Ene 2026 IG Reach.webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)'}])"
+                      data-lightbox-src="assets/metricas_victor/Jul - Ago 2025 Reach Instagram.webp"
+                      data-lightbox-caption="Alcance · 30 días"
+                      data-lightbox-gallery='[{"src":"assets/metricas_victor/Jul - Ago 2025 Reach Instagram.webp","caption":"Alcance orgánico Instagram — Tiendas Victor · 30 días (jul–ago 2025)"},{"src":"assets/metricas_victor/Jul - Oct Reach IG .webp","caption":"Alcance orgánico Instagram — Tiendas Victor · 3 meses (jul–oct 2025)"},{"src":"assets/metricas_victor/Jul 2025 - Ene 2026 IG Reach.webp","caption":"Alcance orgánico Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)"}]'
                       aria-label="Ver alcance orgánico 30 días">
                       <p class="victor-img-label">Alcance</p>
                       <img src="assets/metricas_victor/Jul - Ago 2025 Reach Instagram.webp" alt="Alcance orgánico Instagram 30 días · Tiendas Victor" loading="lazy" />
                     </div>
                     <div class="victor-img-wrap" role="button" tabindex="0"
-                      onclick="openLightbox('assets/metricas_victor/Jul - Ago 2025 Views Instagram.webp','Vistas · 30 días',[{src:'assets/metricas_victor/Jul - Ago 2025 Views Instagram.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 30 días (jul–ago 2025)'},{src:'assets/metricas_victor/Jul - Oct Views IG.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 3 meses (jul–oct 2025)'},{src:'assets/metricas_victor/Jul 2025 - Ene 2026 IG Views.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)'}])"
-                      onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/metricas_victor/Jul - Ago 2025 Views Instagram.webp','Vistas · 30 días',[{src:'assets/metricas_victor/Jul - Ago 2025 Views Instagram.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 30 días (jul–ago 2025)'},{src:'assets/metricas_victor/Jul - Oct Views IG.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 3 meses (jul–oct 2025)'},{src:'assets/metricas_victor/Jul 2025 - Ene 2026 IG Views.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)'}])"
+                      data-lightbox-src="assets/metricas_victor/Jul - Ago 2025 Views Instagram.webp"
+                      data-lightbox-caption="Vistas · 30 días"
+                      data-lightbox-gallery='[{"src":"assets/metricas_victor/Jul - Ago 2025 Views Instagram.webp","caption":"Vistas orgánicas Instagram — Tiendas Victor · 30 días (jul–ago 2025)"},{"src":"assets/metricas_victor/Jul - Oct Views IG.webp","caption":"Vistas orgánicas Instagram — Tiendas Victor · 3 meses (jul–oct 2025)"},{"src":"assets/metricas_victor/Jul 2025 - Ene 2026 IG Views.webp","caption":"Vistas orgánicas Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)"}]'
                       aria-label="Ver vistas orgánicas 30 días">
                       <p class="victor-img-label">Vistas</p>
                       <img src="assets/metricas_victor/Jul - Ago 2025 Views Instagram.webp" alt="Vistas orgánicas Instagram 30 días · Tiendas Victor" loading="lazy" />
@@ -524,15 +527,17 @@
                   </div>
                   <div class="victor-stage-imgs">
                     <div class="victor-img-wrap" role="button" tabindex="0"
-                      onclick="openLightbox('assets/metricas_victor/Jul - Oct Reach IG .webp','Alcance · 3 meses',[{src:'assets/metricas_victor/Jul - Ago 2025 Reach Instagram.webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 30 días (jul–ago 2025)'},{src:'assets/metricas_victor/Jul - Oct Reach IG .webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 3 meses (jul–oct 2025)'},{src:'assets/metricas_victor/Jul 2025 - Ene 2026 IG Reach.webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)'}])"
-                      onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/metricas_victor/Jul - Oct Reach IG .webp','Alcance · 3 meses',[{src:'assets/metricas_victor/Jul - Ago 2025 Reach Instagram.webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 30 días (jul–ago 2025)'},{src:'assets/metricas_victor/Jul - Oct Reach IG .webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 3 meses (jul–oct 2025)'},{src:'assets/metricas_victor/Jul 2025 - Ene 2026 IG Reach.webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)'}])"
+                      data-lightbox-src="assets/metricas_victor/Jul - Oct Reach IG .webp"
+                      data-lightbox-caption="Alcance · 3 meses"
+                      data-lightbox-gallery='[{"src":"assets/metricas_victor/Jul - Ago 2025 Reach Instagram.webp","caption":"Alcance orgánico Instagram — Tiendas Victor · 30 días (jul–ago 2025)"},{"src":"assets/metricas_victor/Jul - Oct Reach IG .webp","caption":"Alcance orgánico Instagram — Tiendas Victor · 3 meses (jul–oct 2025)"},{"src":"assets/metricas_victor/Jul 2025 - Ene 2026 IG Reach.webp","caption":"Alcance orgánico Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)"}]'
                       aria-label="Ver alcance orgánico 3 meses">
                       <p class="victor-img-label">Alcance</p>
                       <img src="assets/metricas_victor/Jul - Oct Reach IG .webp" alt="Alcance orgánico Instagram 3 meses · Tiendas Victor" loading="lazy" />
                     </div>
                     <div class="victor-img-wrap" role="button" tabindex="0"
-                      onclick="openLightbox('assets/metricas_victor/Jul - Oct Views IG.webp','Vistas · 3 meses',[{src:'assets/metricas_victor/Jul - Ago 2025 Views Instagram.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 30 días (jul–ago 2025)'},{src:'assets/metricas_victor/Jul - Oct Views IG.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 3 meses (jul–oct 2025)'},{src:'assets/metricas_victor/Jul 2025 - Ene 2026 IG Views.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)'}])"
-                      onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/metricas_victor/Jul - Oct Views IG.webp','Vistas · 3 meses',[{src:'assets/metricas_victor/Jul - Ago 2025 Views Instagram.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 30 días (jul–ago 2025)'},{src:'assets/metricas_victor/Jul - Oct Views IG.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 3 meses (jul–oct 2025)'},{src:'assets/metricas_victor/Jul 2025 - Ene 2026 IG Views.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)'}])"
+                      data-lightbox-src="assets/metricas_victor/Jul - Oct Views IG.webp"
+                      data-lightbox-caption="Vistas · 3 meses"
+                      data-lightbox-gallery='[{"src":"assets/metricas_victor/Jul - Ago 2025 Views Instagram.webp","caption":"Vistas orgánicas Instagram — Tiendas Victor · 30 días (jul–ago 2025)"},{"src":"assets/metricas_victor/Jul - Oct Views IG.webp","caption":"Vistas orgánicas Instagram — Tiendas Victor · 3 meses (jul–oct 2025)"},{"src":"assets/metricas_victor/Jul 2025 - Ene 2026 IG Views.webp","caption":"Vistas orgánicas Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)"}]'
                       aria-label="Ver vistas orgánicas 3 meses">
                       <p class="victor-img-label">Vistas</p>
                       <img src="assets/metricas_victor/Jul - Oct Views IG.webp" alt="Vistas orgánicas Instagram 3 meses · Tiendas Victor" loading="lazy" />
@@ -562,15 +567,17 @@
                   </div>
                   <div class="victor-stage-imgs">
                     <div class="victor-img-wrap" role="button" tabindex="0"
-                      onclick="openLightbox('assets/metricas_victor/Jul 2025 - Ene 2026 IG Reach.webp','Alcance · 6 meses',[{src:'assets/metricas_victor/Jul - Ago 2025 Reach Instagram.webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 30 días (jul–ago 2025)'},{src:'assets/metricas_victor/Jul - Oct Reach IG .webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 3 meses (jul–oct 2025)'},{src:'assets/metricas_victor/Jul 2025 - Ene 2026 IG Reach.webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)'}])"
-                      onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/metricas_victor/Jul 2025 - Ene 2026 IG Reach.webp','Alcance · 6 meses',[{src:'assets/metricas_victor/Jul - Ago 2025 Reach Instagram.webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 30 días (jul–ago 2025)'},{src:'assets/metricas_victor/Jul - Oct Reach IG .webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 3 meses (jul–oct 2025)'},{src:'assets/metricas_victor/Jul 2025 - Ene 2026 IG Reach.webp',caption:'Alcance orgánico Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)'}])"
+                      data-lightbox-src="assets/metricas_victor/Jul 2025 - Ene 2026 IG Reach.webp"
+                      data-lightbox-caption="Alcance · 6 meses"
+                      data-lightbox-gallery='[{"src":"assets/metricas_victor/Jul - Ago 2025 Reach Instagram.webp","caption":"Alcance orgánico Instagram — Tiendas Victor · 30 días (jul–ago 2025)"},{"src":"assets/metricas_victor/Jul - Oct Reach IG .webp","caption":"Alcance orgánico Instagram — Tiendas Victor · 3 meses (jul–oct 2025)"},{"src":"assets/metricas_victor/Jul 2025 - Ene 2026 IG Reach.webp","caption":"Alcance orgánico Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)"}]'
                       aria-label="Ver alcance orgánico 6 meses">
                       <p class="victor-img-label">Alcance</p>
                       <img src="assets/metricas_victor/Jul 2025 - Ene 2026 IG Reach.webp" alt="Alcance orgánico Instagram 6 meses · Tiendas Victor" loading="lazy" />
                     </div>
                     <div class="victor-img-wrap" role="button" tabindex="0"
-                      onclick="openLightbox('assets/metricas_victor/Jul 2025 - Ene 2026 IG Views.webp','Vistas · 6 meses',[{src:'assets/metricas_victor/Jul - Ago 2025 Views Instagram.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 30 días (jul–ago 2025)'},{src:'assets/metricas_victor/Jul - Oct Views IG.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 3 meses (jul–oct 2025)'},{src:'assets/metricas_victor/Jul 2025 - Ene 2026 IG Views.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)'}])"
-                      onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/metricas_victor/Jul 2025 - Ene 2026 IG Views.webp','Vistas · 6 meses',[{src:'assets/metricas_victor/Jul - Ago 2025 Views Instagram.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 30 días (jul–ago 2025)'},{src:'assets/metricas_victor/Jul - Oct Views IG.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 3 meses (jul–oct 2025)'},{src:'assets/metricas_victor/Jul 2025 - Ene 2026 IG Views.webp',caption:'Vistas orgánicas Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)'}])"
+                      data-lightbox-src="assets/metricas_victor/Jul 2025 - Ene 2026 IG Views.webp"
+                      data-lightbox-caption="Vistas · 6 meses"
+                      data-lightbox-gallery='[{"src":"assets/metricas_victor/Jul - Ago 2025 Views Instagram.webp","caption":"Vistas orgánicas Instagram — Tiendas Victor · 30 días (jul–ago 2025)"},{"src":"assets/metricas_victor/Jul - Oct Views IG.webp","caption":"Vistas orgánicas Instagram — Tiendas Victor · 3 meses (jul–oct 2025)"},{"src":"assets/metricas_victor/Jul 2025 - Ene 2026 IG Views.webp","caption":"Vistas orgánicas Instagram — Tiendas Victor · 6 meses (jul 2025–ene 2026)"}]'
                       aria-label="Ver vistas orgánicas 6 meses">
                       <p class="victor-img-label">Vistas</p>
                       <img src="assets/metricas_victor/Jul 2025 - Ene 2026 IG Views.webp" alt="Vistas orgánicas Instagram 6 meses · Tiendas Victor" loading="lazy" />
@@ -588,7 +595,7 @@
                 <!-- Video 1 -->
                 <div class="vacc-item">
                   <button class="vacc-trigger" aria-expanded="false" aria-controls="vacc-body-1" onclick="toggleAccordion(this)">
-                    <span class="vacc-title">Style Session con Diana</span>
+                    <span>Style Session con Diana</span>
                     <span class="vacc-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
                   </button>
                   <div class="vacc-body" id="vacc-body-1"><div class="vacc-body-inner">
@@ -602,20 +609,23 @@
                       <p class="vacc-section-label">Comentarios</p>
                       <div class="vacc-comments">
                         <div class="victor-img-wrap" role="button" tabindex="0"
-                          onclick="openLightbox('assets/comentarios_victor/Comentarios Style (1).webp','Comentarios · Style Session con Diana',[{src:'assets/comentarios_victor/Comentarios Style (1).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Style (2).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Style (3).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'}])"
-                          onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/comentarios_victor/Comentarios Style (1).webp','Comentarios · Style Session con Diana',[{src:'assets/comentarios_victor/Comentarios Style (1).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Style (2).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Style (3).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'}])"
+                          data-lightbox-src="assets/comentarios_victor/Comentarios Style (1).webp"
+                          data-lightbox-caption="Comentarios · Style Session con Diana"
+                          data-lightbox-gallery='[{"src":"assets/comentarios_victor/Comentarios Style (1).webp","caption":"Reacción de audiencia — Style Session con Diana · Tiendas Victor"},{"src":"assets/comentarios_victor/Comentarios Style (2).webp","caption":"Reacción de audiencia — Style Session con Diana · Tiendas Victor"},{"src":"assets/comentarios_victor/Comentarios Style (3).webp","caption":"Reacción de audiencia — Style Session con Diana · Tiendas Victor"}]'
                           aria-label="Ver comentarios Style Session 1">
                           <img src="assets/comentarios_victor/Comentarios Style (1).webp" alt="Comentarios reales Style Session con Diana · Tiendas Victor" loading="lazy" draggable="false" />
                         </div>
                         <div class="victor-img-wrap" role="button" tabindex="0"
-                          onclick="openLightbox('assets/comentarios_victor/Comentarios Style (2).webp','Comentarios · Style Session con Diana',[{src:'assets/comentarios_victor/Comentarios Style (1).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Style (2).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Style (3).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'}])"
-                          onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/comentarios_victor/Comentarios Style (2).webp','Comentarios · Style Session con Diana',[{src:'assets/comentarios_victor/Comentarios Style (1).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Style (2).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Style (3).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'}])"
+                          data-lightbox-src="assets/comentarios_victor/Comentarios Style (2).webp"
+                          data-lightbox-caption="Comentarios · Style Session con Diana"
+                          data-lightbox-gallery='[{"src":"assets/comentarios_victor/Comentarios Style (1).webp","caption":"Reacción de audiencia — Style Session con Diana · Tiendas Victor"},{"src":"assets/comentarios_victor/Comentarios Style (2).webp","caption":"Reacción de audiencia — Style Session con Diana · Tiendas Victor"},{"src":"assets/comentarios_victor/Comentarios Style (3).webp","caption":"Reacción de audiencia — Style Session con Diana · Tiendas Victor"}]'
                           aria-label="Ver comentarios Style Session 2">
                           <img src="assets/comentarios_victor/Comentarios Style (2).webp" alt="Comentarios reales Style Session con Diana · Tiendas Victor" loading="lazy" draggable="false" />
                         </div>
                         <div class="victor-img-wrap" role="button" tabindex="0"
-                          onclick="openLightbox('assets/comentarios_victor/Comentarios Style (3).webp','Comentarios · Style Session con Diana',[{src:'assets/comentarios_victor/Comentarios Style (1).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Style (2).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Style (3).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'}])"
-                          onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/comentarios_victor/Comentarios Style (3).webp','Comentarios · Style Session con Diana',[{src:'assets/comentarios_victor/Comentarios Style (1).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Style (2).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Style (3).webp',caption:'Reacción de audiencia — Style Session con Diana · Tiendas Victor'}])"
+                          data-lightbox-src="assets/comentarios_victor/Comentarios Style (3).webp"
+                          data-lightbox-caption="Comentarios · Style Session con Diana"
+                          data-lightbox-gallery='[{"src":"assets/comentarios_victor/Comentarios Style (1).webp","caption":"Reacción de audiencia — Style Session con Diana · Tiendas Victor"},{"src":"assets/comentarios_victor/Comentarios Style (2).webp","caption":"Reacción de audiencia — Style Session con Diana · Tiendas Victor"},{"src":"assets/comentarios_victor/Comentarios Style (3).webp","caption":"Reacción de audiencia — Style Session con Diana · Tiendas Victor"}]'
                           aria-label="Ver comentarios Style Session 3">
                           <img src="assets/comentarios_victor/Comentarios Style (3).webp" alt="Comentarios reales Style Session con Diana · Tiendas Victor" loading="lazy" draggable="false" />
                         </div>
@@ -627,7 +637,7 @@
                 <!-- Video 2 -->
                 <div class="vacc-item">
                   <button class="vacc-trigger" aria-expanded="false" aria-controls="vacc-body-2" onclick="toggleAccordion(this)">
-                    <span class="vacc-title">Campaña Navidad Petfriends</span>
+                    <span>Campaña Navidad Petfriends</span>
                     <span class="vacc-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
                   </button>
                   <div class="vacc-body" id="vacc-body-2"><div class="vacc-body-inner">
@@ -641,20 +651,23 @@
                       <p class="vacc-section-label">Comentarios</p>
                       <div class="vacc-comments">
                         <div class="victor-img-wrap" role="button" tabindex="0"
-                          onclick="openLightbox('assets/comentarios_victor/Comentarios Petfriends (1).webp','Comentarios · Campaña Navidad Petfriends',[{src:'assets/comentarios_victor/Comentarios Petfriends (1).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Petfriends (2).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Petfriends (3).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'}])"
-                          onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/comentarios_victor/Comentarios Petfriends (1).webp','Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor',[{src:'assets/comentarios_victor/Comentarios Petfriends (1).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Petfriends (2).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Petfriends (3).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'}])"
+                          data-lightbox-src="assets/comentarios_victor/Comentarios Petfriends (1).webp"
+                          data-lightbox-caption="Comentarios · Campaña Navidad Petfriends"
+                          data-lightbox-gallery='[{"src":"assets/comentarios_victor/Comentarios Petfriends (1).webp","caption":"Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor"},{"src":"assets/comentarios_victor/Comentarios Petfriends (2).webp","caption":"Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor"},{"src":"assets/comentarios_victor/Comentarios Petfriends (3).webp","caption":"Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor"}]'
                           aria-label="Ver comentarios Campaña Navidad Petfriends 1">
                           <img src="assets/comentarios_victor/Comentarios Petfriends (1).webp" alt="Comentarios reales Campaña Navidad Petfriends · Tiendas Victor" loading="lazy" draggable="false" />
                         </div>
                         <div class="victor-img-wrap" role="button" tabindex="0"
-                          onclick="openLightbox('assets/comentarios_victor/Comentarios Petfriends (2).webp','Comentarios · Campaña Navidad Petfriends',[{src:'assets/comentarios_victor/Comentarios Petfriends (1).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Petfriends (2).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Petfriends (3).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'}])"
-                          onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/comentarios_victor/Comentarios Petfriends (2).webp','Comentarios · Campaña Navidad Petfriends',[{src:'assets/comentarios_victor/Comentarios Petfriends (1).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Petfriends (2).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Petfriends (3).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'}])"
+                          data-lightbox-src="assets/comentarios_victor/Comentarios Petfriends (2).webp"
+                          data-lightbox-caption="Comentarios · Campaña Navidad Petfriends"
+                          data-lightbox-gallery='[{"src":"assets/comentarios_victor/Comentarios Petfriends (1).webp","caption":"Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor"},{"src":"assets/comentarios_victor/Comentarios Petfriends (2).webp","caption":"Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor"},{"src":"assets/comentarios_victor/Comentarios Petfriends (3).webp","caption":"Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor"}]'
                           aria-label="Ver comentarios Campaña Navidad Petfriends 2">
                           <img src="assets/comentarios_victor/Comentarios Petfriends (2).webp" alt="Comentarios reales Campaña Navidad Petfriends · Tiendas Victor" loading="lazy" draggable="false" />
                         </div>
                         <div class="victor-img-wrap" role="button" tabindex="0"
-                          onclick="openLightbox('assets/comentarios_victor/Comentarios Petfriends (3).webp','Comentarios · Campaña Navidad Petfriends',[{src:'assets/comentarios_victor/Comentarios Petfriends (1).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Petfriends (2).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Petfriends (3).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'}])"
-                          onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/comentarios_victor/Comentarios Petfriends (3).webp','Comentarios · Campaña Navidad Petfriends',[{src:'assets/comentarios_victor/Comentarios Petfriends (1).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Petfriends (2).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'},{src:'assets/comentarios_victor/Comentarios Petfriends (3).webp',caption:'Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor'}])"
+                          data-lightbox-src="assets/comentarios_victor/Comentarios Petfriends (3).webp"
+                          data-lightbox-caption="Comentarios · Campaña Navidad Petfriends"
+                          data-lightbox-gallery='[{"src":"assets/comentarios_victor/Comentarios Petfriends (1).webp","caption":"Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor"},{"src":"assets/comentarios_victor/Comentarios Petfriends (2).webp","caption":"Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor"},{"src":"assets/comentarios_victor/Comentarios Petfriends (3).webp","caption":"Reacción de audiencia — Campaña Navidad Petfriends · Tiendas Victor"}]'
                           aria-label="Ver comentarios Campaña Navidad Petfriends 3">
                           <img src="assets/comentarios_victor/Comentarios Petfriends (3).webp" alt="Comentarios reales Campaña Navidad Petfriends · Tiendas Victor" loading="lazy" draggable="false" />
                         </div>
@@ -666,7 +679,7 @@
                 <!-- Video 3 -->
                 <div class="vacc-item">
                   <button class="vacc-trigger" aria-expanded="false" aria-controls="vacc-body-3" onclick="toggleAccordion(this)">
-                    <span class="vacc-title">11 QA con Diana Henao — Directora de Arte Victor</span>
+                    <span>11 QA con Diana Henao — Directora de Arte Victor</span>
                     <span class="vacc-icon" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
                   </button>
                   <div class="vacc-body" id="vacc-body-3"><div class="vacc-body-inner">
@@ -680,14 +693,16 @@
                       <p class="vacc-section-label vacc-section-label--center">Comentarios</p>
                       <div class="vacc-comments">
                         <div class="victor-img-wrap" role="button" tabindex="0"
-                          onclick="openLightbox('assets/comentarios_victor/Comentarios 11QA (1).webp','Comentarios · 11 QA con Diana Henao',[{src:'assets/comentarios_victor/Comentarios 11QA (1).webp',caption:'Reacción de audiencia — 11 QA con Diana Henao, Directora de Arte Victor'},{src:'assets/comentarios_victor/Comentarios 11QA (2).webp',caption:'Reacción de audiencia — 11 QA con Diana Henao, Directora de Arte Victor'}])"
-                          onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/comentarios_victor/Comentarios 11QA (1).webp','Comentarios · 11 QA con Diana Henao',[{src:'assets/comentarios_victor/Comentarios 11QA (1).webp',caption:'Reacción de audiencia — 11 QA con Diana Henao, Directora de Arte Victor'},{src:'assets/comentarios_victor/Comentarios 11QA (2).webp',caption:'Reacción de audiencia — 11 QA con Diana Henao, Directora de Arte Victor'}])"
+                          data-lightbox-src="assets/comentarios_victor/Comentarios 11QA (1).webp"
+                          data-lightbox-caption="Comentarios · 11 QA con Diana Henao"
+                          data-lightbox-gallery='[{"src":"assets/comentarios_victor/Comentarios 11QA (1).webp","caption":"Reacción de audiencia — 11 QA con Diana Henao, Directora de Arte Victor"},{"src":"assets/comentarios_victor/Comentarios 11QA (2).webp","caption":"Reacción de audiencia — 11 QA con Diana Henao, Directora de Arte Victor"}]'
                           aria-label="Ver comentarios 11QA 1">
                           <img src="assets/comentarios_victor/Comentarios 11QA (1).webp" alt="Comentarios reales 11 QA Diana Henao · Tiendas Victor" loading="lazy" draggable="false" />
                         </div>
                         <div class="victor-img-wrap" role="button" tabindex="0"
-                          onclick="openLightbox('assets/comentarios_victor/Comentarios 11QA (2).webp','Comentarios · 11 QA con Diana Henao',[{src:'assets/comentarios_victor/Comentarios 11QA (1).webp',caption:'Reacción de audiencia — 11 QA con Diana Henao, Directora de Arte Victor'},{src:'assets/comentarios_victor/Comentarios 11QA (2).webp',caption:'Reacción de audiencia — 11 QA con Diana Henao, Directora de Arte Victor'}])"
-                          onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/comentarios_victor/Comentarios 11QA (2).webp','Comentarios · 11 QA con Diana Henao',[{src:'assets/comentarios_victor/Comentarios 11QA (1).webp',caption:'Reacción de audiencia — 11 QA con Diana Henao, Directora de Arte Victor'},{src:'assets/comentarios_victor/Comentarios 11QA (2).webp',caption:'Reacción de audiencia — 11 QA con Diana Henao, Directora de Arte Victor'}])"
+                          data-lightbox-src="assets/comentarios_victor/Comentarios 11QA (2).webp"
+                          data-lightbox-caption="Comentarios · 11 QA con Diana Henao"
+                          data-lightbox-gallery='[{"src":"assets/comentarios_victor/Comentarios 11QA (1).webp","caption":"Reacción de audiencia — 11 QA con Diana Henao, Directora de Arte Victor"},{"src":"assets/comentarios_victor/Comentarios 11QA (2).webp","caption":"Reacción de audiencia — 11 QA con Diana Henao, Directora de Arte Victor"}]'
                           aria-label="Ver comentarios 11QA 2">
                           <img src="assets/comentarios_victor/Comentarios 11QA (2).webp" alt="Comentarios reales 11 QA Diana Henao · Tiendas Victor" loading="lazy" draggable="false" />
                         </div>
@@ -704,7 +719,7 @@
         </article>
 
         <!-- CASO 2 -->
-        <article id="caso-imageworks" class="case-card reveal" style="margin-top:24px;" aria-labelledby="case2-title">
+        <article id="caso-imageworks" class="case-card reveal case-card--second" aria-labelledby="case2-title">
 
           <div class="case-badge" aria-label="Caso de estudio 02">Caso 02</div>
           <h3 class="case-client" id="case2-title">Image Works | Branding Solutions · Captación de leads</h3>
@@ -773,7 +788,7 @@
                 </div>
                 <div class="pauta-item">
                   <p class="pauta-label">Comentarios en el anuncio</p>
-                  <div class="pauta-img-wrap email-thumb" role="button" tabindex="0"
+                  <div class="pauta-img-wrap" role="button" tabindex="0"
                     onclick="openLightbox('assets/Pauta Image Works/Comentarios_pauta_image_works.webp','Comentarios en el anuncio · Image Works')"
                     onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/Pauta Image Works/Comentarios_pauta_image_works.webp','Comentarios en el anuncio · Image Works')"
                     aria-label="Ver imagen: Comentarios en el anuncio de pauta">
@@ -807,7 +822,7 @@
               </div>
 
               <!-- Campañas -->
-              <div class="email-gallery" style="margin-top:20px;">
+              <div class="email-gallery email-gallery--mt">
                 <div class="email-thumb" role="button" tabindex="0"
                   onclick="openLightbox('assets/campanas-email/Cinco_de_mayo_email_image.webp','Campaña Cinco de Mayo · Image Works',[{src:'assets/campanas-email/Cinco_de_mayo_email_image.webp',caption:'Email marketing Cinco de Mayo — Image Works Branding Solutions · Restaurantes EE. UU.'},{src:'assets/campanas-email/winter_image_works_image.webp',caption:'Email marketing campaña Winter — Image Works Branding Solutions · Restaurantes EE. UU.'}])"
                   onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/campanas-email/Cinco_de_mayo_email_image.webp','Campaña Cinco de Mayo · Image Works',[{src:'assets/campanas-email/Cinco_de_mayo_email_image.webp',caption:'Email marketing Cinco de Mayo — Image Works Branding Solutions · Restaurantes EE. UU.'},{src:'assets/campanas-email/winter_image_works_image.webp',caption:'Email marketing campaña Winter — Image Works Branding Solutions · Restaurantes EE. UU.'}])"
@@ -1071,7 +1086,7 @@
     const _initPath = window.location.pathname.replace(/\/$/, '') || '/';
     if (_initPath === '/') {
       scrollToTopInstant();
-      window.addEventListener('pageshow', e => { if (_initPath === '/') scrollToTopInstant(); });
+      window.addEventListener('pageshow', () => { if (_initPath === '/') scrollToTopInstant(); });
       window.addEventListener('load', () => { if (_initPath === '/') scrollToTopInstant(); });
     } else {
       // Carga directa de ruta como /acerca → scroll a la sección
@@ -1107,6 +1122,9 @@
 
     /* ── Sección activa en nav (scroll-based, más preciso) ── */
     const navSections = ['inicio','acerca','casos','herramientas','faq','contacto'];
+    const navSectionEls = navSections.map(id => ({ id, el: document.getElementById(id) }));
+    const case2ElCached = document.getElementById('caso-imageworks');
+    const drawerHasSubEl = document.querySelector('.drawer-has-sub');
 
     /* ── Eventos de sección para Google Analytics ── */
     const _seccionesVistas = new Set();
@@ -1154,8 +1172,7 @@
       const atBottom = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 10;
 
       let activeSection = navSections[0];
-      for (const id of navSections) {
-        const el = document.getElementById(id);
+      for (const { id, el } of navSectionEls) {
         if (el && el.getBoundingClientRect().top <= TRIGGER) activeSection = id;
       }
 
@@ -1167,8 +1184,7 @@
 
       // Si estamos en casos, también marca el sub-ítem correcto en el dropdown
       if (activeSection === 'casos') {
-        const case2El = document.getElementById('caso-imageworks');
-        if (case2El && case2El.getBoundingClientRect().top <= TRIGGER) {
+        if (case2ElCached && case2ElCached.getBoundingClientRect().top <= TRIGGER) {
           if (navLinkMap['caso-imageworks']) navLinkMap['caso-imageworks'].classList.add('nav-active');
         } else {
           if (navLinkMap['caso-victor']) navLinkMap['caso-victor'].classList.add('nav-active');
@@ -1178,24 +1194,22 @@
       // Drawer: todos quitan activo
       Object.values(drawerLinkMap).forEach(arr => arr.forEach(a => a.classList.remove('nav-active')));
 
-      const drawerHasSub = document.querySelector('.drawer-has-sub');
       if (activeSection === 'casos') {
         // Marca el padre "Casos de éxito" como activo y auto-expande el sub-menú
-        if (drawerHasSub) {
-          drawerHasSub.classList.add('casos-active');
-          drawerHasSub.classList.add('open'); // auto-expand para ver cuál caso está activo
-          const subToggle = drawerHasSub.querySelector('.drawer-sub-toggle');
+        if (drawerHasSubEl) {
+          drawerHasSubEl.classList.add('casos-active');
+          drawerHasSubEl.classList.add('open'); // auto-expand para ver cuál caso está activo
+          const subToggle = drawerHasSubEl.querySelector('.drawer-sub-toggle');
           if (subToggle) subToggle.setAttribute('aria-expanded', 'true');
         }
         // Distingue case1 vs case2 dentro de la sección casos
-        const case2El = document.getElementById('caso-imageworks');
-        if (case2El && case2El.getBoundingClientRect().top <= TRIGGER) {
+        if (case2ElCached && case2ElCached.getBoundingClientRect().top <= TRIGGER) {
           if (drawerLinkMap['caso-imageworks']) drawerLinkMap['caso-imageworks'].forEach(a => a.classList.add('nav-active'));
         } else {
           if (drawerLinkMap['caso-victor']) drawerLinkMap['caso-victor'].forEach(a => a.classList.add('nav-active'));
         }
       } else {
-        if (drawerHasSub) drawerHasSub.classList.remove('casos-active');
+        if (drawerHasSubEl) drawerHasSubEl.classList.remove('casos-active');
         if (drawerLinkMap[activeSection]) drawerLinkMap[activeSection].forEach(a => a.classList.add('nav-active'));
       }
     }
@@ -1347,16 +1361,14 @@
       });
       btn.classList.add('active');
       btn.setAttribute('aria-selected', 'true');
-      if (tabsRow) {
-        const btnLeft  = btn.offsetLeft;
-        const btnRight = btnLeft + btn.offsetWidth;
-        const rowVisible = tabsRow.offsetWidth;
-        const currentScroll = tabsRow.scrollLeft;
-        if (btnRight > currentScroll + rowVisible - 16) {
-          tabsRow.scrollLeft = btnRight - rowVisible + 24;
-        } else if (btnLeft < currentScroll + 16) {
-          tabsRow.scrollLeft = btnLeft - 24;
-        }
+      const btnLeft  = btn.offsetLeft;
+      const btnRight = btnLeft + btn.offsetWidth;
+      const rowVisible = tabsRow.offsetWidth;
+      const currentScroll = tabsRow.scrollLeft;
+      if (btnRight > currentScroll + rowVisible - 16) {
+        tabsRow.scrollLeft = btnRight - rowVisible + 24;
+      } else if (btnLeft < currentScroll + 16) {
+        tabsRow.scrollLeft = btnLeft - 24;
       }
       const panel = document.getElementById(panelId);
       panel.classList.add('active');
@@ -1542,9 +1554,9 @@
     const heroScrollDown = document.querySelector('.hero-scroll-down');
     if (heroScrollDown) heroScrollDown.addEventListener('click', e => {
       e.preventDefault();
+      history.replaceState({ href: '#acerca' }, '', '/acerca');
       const target = document.getElementById('acerca');
       if (target) target.scrollIntoView({ behavior: 'smooth' });
-      history.replaceState(null, '', location.pathname + location.search);
       heroScrollDown.blur();
     });
 
@@ -1616,9 +1628,30 @@
         }
       });
     });
-  </script>
 
-  <script>
+    /* ── Lightbox listeners delegados (reemplaza onclick/onkeydown inline) ── */
+    document.addEventListener('click', e => {
+      const wrap = e.target.closest('[data-lightbox-src]');
+      if (!wrap) return;
+      openLightbox(
+        wrap.dataset.lightboxSrc,
+        wrap.dataset.lightboxCaption || '',
+        wrap.dataset.lightboxGallery ? JSON.parse(wrap.dataset.lightboxGallery) : null
+      );
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const wrap = e.target.closest('[data-lightbox-src]');
+      if (!wrap) return;
+      e.preventDefault();
+      openLightbox(
+        wrap.dataset.lightboxSrc,
+        wrap.dataset.lightboxCaption || '',
+        wrap.dataset.lightboxGallery ? JSON.parse(wrap.dataset.lightboxGallery) : null
+      );
+    });
+
+    /* ── YouTube facade — carga iframe al hacer clic ── */
     document.querySelectorAll('.yt-facade').forEach(function(facade) {
       facade.addEventListener('click', function() {
         var id = facade.dataset.id;
