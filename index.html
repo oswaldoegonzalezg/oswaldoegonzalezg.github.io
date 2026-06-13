@@ -216,8 +216,8 @@
     .hero-content{position:relative;z-index:2;width:100%;text-align:center;padding:24px}
   </style>
   <!-- CSS completo — carga no bloqueante -->
-  <link rel="preload" href="styles.css?v=2" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="styles.css?v=2"></noscript>
+  <link rel="preload" href="styles.css?v=3" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css?v=3"></noscript>
 
 </head>
 
@@ -1504,11 +1504,11 @@
 
     function closeDrawer() {
       navDrawer.style.opacity = '0';
+      document.body.classList.remove('drawer-open');
       setTimeout(() => {
         mainNav.classList.remove('menu-open');
         hamburgerBtn.setAttribute('aria-expanded', 'false');
         navDrawer.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('drawer-open');
         navDrawer.style.opacity = '';
       }, 350);
     }
@@ -1558,7 +1558,7 @@
         isScrollingTo = true;
         clearTimeout(scrollEndTimer);
         scrollEndTimer = setTimeout(() => { isScrollingTo = false; updateActiveNav(); }, 2500);
-        setTimeout(() => { scrollToSection(href); }, 310);
+        setTimeout(() => { scrollToSection(href); }, 420);
       });
     });
 
