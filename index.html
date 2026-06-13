@@ -1517,7 +1517,7 @@
       marqueeTrack.style.animationPlayState = 'paused';
       document.fonts.ready.then(() => requestAnimationFrame(() => {
         const px = marqueeTrack.scrollWidth / 2;
-        const speed = 45 * (window.innerWidth / 1440);
+        const speed = 45 * Math.max(window.innerWidth / 1440, 0.6);
         const duration = Math.round(px / speed * 10) / 10;
         marqueeTrack.style.setProperty('--marquee-duration', duration + 's');
         marqueeTrack.style.animationPlayState = '';
