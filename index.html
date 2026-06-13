@@ -1117,13 +1117,6 @@
     );
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
     document.querySelectorAll('.metric').forEach(el => { el.classList.add('reveal'); revealObs.observe(el); });
-    document.querySelectorAll('.section-num').forEach(el => {
-      const deco = document.createElement('span');
-      deco.className = 'section-num-deco';
-      deco.setAttribute('aria-hidden', 'true');
-      deco.textContent = el.textContent;
-      el.closest('.section-label').appendChild(deco);
-    });
 
     /* ── Sección activa en nav (scroll-based, más preciso) ── */
     const navSections = ['inicio','acerca','casos','herramientas','faq','contacto'];
@@ -1228,7 +1221,9 @@
     }
 
     let rafPending = false;
+    let isScrollingTo = false;
     function onScroll() {
+      if (isScrollingTo) return;
       if (!rafPending) {
         rafPending = true;
         requestAnimationFrame(function() {
@@ -1521,8 +1516,9 @@
         }
 
         closeDrawer();
+        isScrollingTo = true;
         setTimeout(() => { scrollToSection(href); }, 310);
-        setTimeout(updateActiveNav, 1100);
+        setTimeout(() => { isScrollingTo = false; updateActiveNav(); }, 1100);
       });
     });
 
