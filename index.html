@@ -601,7 +601,7 @@
                   <div class="vacc-body" id="vacc-body-1"><div class="vacc-body-inner">
                     <div class="vacc-video-wrap vacc-vertical">
                       <div class="yt-facade" data-id="H5ruYifutco" data-title="Style Session con Diana">
-                        <img src="https://i.ytimg.com/vi/H5ruYifutco/hqdefault.jpg" alt="Style Session con Diana" loading="lazy" draggable="false" width="480" height="360">
+                        <img src="assets/yt-thumbnails/H5ruYifutco.jpg" alt="Style Session con Diana" loading="lazy" draggable="false" width="480" height="360">
                         <button class="yt-play" aria-label="Reproducir Style Session con Diana">&#9654;</button>
                       </div>
                     </div>
@@ -643,7 +643,7 @@
                   <div class="vacc-body" id="vacc-body-2"><div class="vacc-body-inner">
                     <div class="vacc-video-wrap vacc-vertical">
                       <div class="yt-facade" data-id="u6VEn0_HhoY" data-title="Campaña Navidad Petfriends">
-                        <img src="https://i.ytimg.com/vi/u6VEn0_HhoY/hqdefault.jpg" alt="Campaña Navidad Petfriends" loading="lazy" draggable="false" width="480" height="360">
+                        <img src="assets/yt-thumbnails/u6VEn0_HhoY.jpg" alt="Campaña Navidad Petfriends" loading="lazy" draggable="false" width="480" height="360">
                         <button class="yt-play" aria-label="Reproducir Campaña Navidad Petfriends">&#9654;</button>
                       </div>
                     </div>
@@ -685,7 +685,7 @@
                   <div class="vacc-body" id="vacc-body-3"><div class="vacc-body-inner">
                     <div class="vacc-video-wrap vacc-horizontal">
                       <div class="yt-facade" data-id="7r_rEDEEXvc" data-title="11 QA with Diana Henao - Directora de Arte Victor">
-                        <img src="https://i.ytimg.com/vi/7r_rEDEEXvc/hqdefault.jpg" alt="11 QA with Diana Henao - Directora de Arte Victor" loading="lazy" draggable="false" width="480" height="360">
+                        <img src="assets/yt-thumbnails/7r_rEDEEXvc.jpg" alt="11 QA with Diana Henao - Directora de Arte Victor" loading="lazy" draggable="false" width="480" height="360">
                         <button class="yt-play" aria-label="Reproducir 11 QA with Diana Henao">&#9654;</button>
                       </div>
                     </div>
@@ -781,7 +781,7 @@
                   <p class="pauta-label">Video de pauta</p>
                   <div class="pauta-video-wrap">
                     <div class="yt-facade" data-id="5q-5VOBwh-0" data-title="Video Anuncio — Image Works">
-                      <img src="https://i.ytimg.com/vi/5q-5VOBwh-0/hqdefault.jpg" alt="Video Anuncio — Image Works" loading="lazy" draggable="false" width="480" height="360">
+                      <img src="assets/yt-thumbnails/5q-5VOBwh-0.jpg" alt="Video Anuncio — Image Works" loading="lazy" draggable="false" width="480" height="360">
                       <button class="yt-play" aria-label="Reproducir Video Anuncio Image Works">&#9654;</button>
                     </div>
                   </div>
@@ -1164,46 +1164,39 @@
     });
 
     function updateActiveNav() {
-      // Usa getBoundingClientRect directamente contra el viewport.
-      // La sección activa es la última cuyo borde superior ya pasó los 120px del nav.
       const TRIGGER = 120;
 
-      // Si el usuario llegó al fondo de la página, forzar la última sección
+      // === LEER PRIMERO — todos los valores de layout antes de tocar el DOM ===
       const atBottom = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 10;
-
       let activeSection = navSections[0];
       for (const { id, el } of navSectionEls) {
         if (el && el.getBoundingClientRect().top <= TRIGGER) activeSection = id;
       }
-
       if (atBottom) activeSection = navSections[navSections.length - 1];
+      const case2InView = activeSection === 'casos' && case2ElCached && case2ElCached.getBoundingClientRect().top <= TRIGGER;
 
-      // Desktop: marca sección activa
+      // === ESCRIBIR DESPUÉS — todas las modificaciones al DOM ===
       Object.values(navLinkMap).forEach(a => a.classList.remove('nav-active'));
       if (navLinkMap[activeSection]) navLinkMap[activeSection].classList.add('nav-active');
 
-      // Si estamos en casos, también marca el sub-ítem correcto en el dropdown
       if (activeSection === 'casos') {
-        if (case2ElCached && case2ElCached.getBoundingClientRect().top <= TRIGGER) {
+        if (case2InView) {
           if (navLinkMap['caso-imageworks']) navLinkMap['caso-imageworks'].classList.add('nav-active');
         } else {
           if (navLinkMap['caso-victor']) navLinkMap['caso-victor'].classList.add('nav-active');
         }
       }
 
-      // Drawer: todos quitan activo
       Object.values(drawerLinkMap).forEach(arr => arr.forEach(a => a.classList.remove('nav-active')));
 
       if (activeSection === 'casos') {
-        // Marca el padre "Casos de éxito" como activo y auto-expande el sub-menú
         if (drawerHasSubEl) {
           drawerHasSubEl.classList.add('casos-active');
-          drawerHasSubEl.classList.add('open'); // auto-expand para ver cuál caso está activo
+          drawerHasSubEl.classList.add('open');
           const subToggle = drawerHasSubEl.querySelector('.drawer-sub-toggle');
           if (subToggle) subToggle.setAttribute('aria-expanded', 'true');
         }
-        // Distingue case1 vs case2 dentro de la sección casos
-        if (case2ElCached && case2ElCached.getBoundingClientRect().top <= TRIGGER) {
+        if (case2InView) {
           if (drawerLinkMap['caso-imageworks']) drawerLinkMap['caso-imageworks'].forEach(a => a.classList.add('nav-active'));
         } else {
           if (drawerLinkMap['caso-victor']) drawerLinkMap['caso-victor'].forEach(a => a.classList.add('nav-active'));
@@ -1361,6 +1354,12 @@
       const container = document.getElementById(containerId);
       const tabsRow   = btn.closest('.case-tabs');
       const tabsWrap  = btn.closest('.case-card') || btn.closest('article');
+      // === LEER primero — antes de cualquier escritura al DOM ===
+      const btnLeft      = btn.offsetLeft;
+      const btnRight     = btnLeft + btn.offsetWidth;
+      const rowVisible   = tabsRow.offsetWidth;
+      const currentScroll = tabsRow.scrollLeft;
+      // === ESCRIBIR después ===
       tabsWrap.querySelectorAll('.case-tab').forEach(t => {
         t.classList.remove('active');
         t.setAttribute('aria-selected', 'false');
@@ -1372,10 +1371,6 @@
       });
       btn.classList.add('active');
       btn.setAttribute('aria-selected', 'true');
-      const btnLeft  = btn.offsetLeft;
-      const btnRight = btnLeft + btn.offsetWidth;
-      const rowVisible = tabsRow.offsetWidth;
-      const currentScroll = tabsRow.scrollLeft;
       if (btnRight > currentScroll + rowVisible - 16) {
         tabsRow.scrollLeft = btnRight - rowVisible + 24;
       } else if (btnLeft < currentScroll + 16) {
