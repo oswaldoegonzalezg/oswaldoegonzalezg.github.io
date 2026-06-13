@@ -1116,6 +1116,7 @@
       { threshold: 0.12 }
     );
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+    document.querySelectorAll('.metric').forEach(el => { el.classList.add('reveal'); revealObs.observe(el); });
 
     /* ── Sección activa en nav (scroll-based, más preciso) ── */
     const navSections = ['inicio','acerca','casos','herramientas','faq','contacto'];
