@@ -1499,7 +1499,10 @@
         scrollToTopInstant();
       } else {
         const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        if (target) {
+          const top = target.getBoundingClientRect().top + window.scrollY - 48;
+          window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        }
       }
       history.pushState({ href }, '', path);
     }
