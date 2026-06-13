@@ -1209,7 +1209,12 @@
           if (drawerLinkMap['caso-victor']) drawerLinkMap['caso-victor'].forEach(a => a.classList.add('nav-active'));
         }
       } else {
-        if (drawerHasSubEl) drawerHasSubEl.classList.remove('casos-active');
+        if (drawerHasSubEl) {
+          drawerHasSubEl.classList.remove('casos-active');
+          drawerHasSubEl.classList.remove('open');
+          const subToggle = drawerHasSubEl.querySelector('.drawer-sub-toggle');
+          if (subToggle) subToggle.setAttribute('aria-expanded', 'false');
+        }
         if (drawerLinkMap[activeSection]) drawerLinkMap[activeSection].forEach(a => a.classList.add('nav-active'));
       }
     }
