@@ -297,6 +297,8 @@
       <li><a href="#faq"          class="drawer-link">FAQ</a></li>
       <li><a href="#contacto"     class="drawer-link">Contacto</a></li>
     </ul>
+    <div class="nav-drawer-footer">Social Media Manager · Bogotá</div>
+    <div class="nav-drawer-logo" aria-hidden="true">OG</div>
     </div>
 
   </nav>
@@ -1473,15 +1475,13 @@
 
     function closeDrawer() {
       navDrawer.style.opacity = '0';
-      navDrawer.style.transform = 'translateY(-8px)';
       setTimeout(() => {
         mainNav.classList.remove('menu-open');
         hamburgerBtn.setAttribute('aria-expanded', 'false');
         navDrawer.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('drawer-open');
         navDrawer.style.opacity = '';
-        navDrawer.style.transform = '';
-      }, 250);
+      }, 350);
     }
 
     hamburgerBtn.addEventListener('click', () => {
