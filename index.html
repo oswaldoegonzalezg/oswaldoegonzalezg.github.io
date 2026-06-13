@@ -1469,11 +1469,11 @@
     function closeDrawer() {
       navDrawer.style.opacity = '0';
       navDrawer.style.transform = 'translateY(-8px)';
+      document.body.classList.remove('drawer-open');
       setTimeout(() => {
         mainNav.classList.remove('menu-open');
         hamburgerBtn.setAttribute('aria-expanded', 'false');
         navDrawer.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('drawer-open');
         navDrawer.style.opacity = '';
         navDrawer.style.transform = '';
       }, 250);
