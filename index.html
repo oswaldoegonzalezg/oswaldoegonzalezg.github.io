@@ -1514,11 +1514,13 @@
     /* ── Duración del marquee según ancho real (diferido para evitar forced reflow) ── */
     const marqueeTrack = document.querySelector('.marquee-track');
     if (marqueeTrack) {
+      marqueeTrack.style.animationPlayState = 'paused';
       document.fonts.ready.then(() => requestAnimationFrame(() => {
         const px = marqueeTrack.scrollWidth / 2;
         const speed = 45 * Math.max(window.innerWidth / 1440, 0.4);
         const duration = Math.round(px / speed * 10) / 10;
         marqueeTrack.style.setProperty('--marquee-duration', duration + 's');
+        marqueeTrack.style.animationPlayState = '';
       }));
     }
 
