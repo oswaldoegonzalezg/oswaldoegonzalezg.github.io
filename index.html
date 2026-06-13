@@ -1495,9 +1495,12 @@
     // Scroll limpio a una sección con ruta limpia en la URL
     function scrollToSection(href) {
       const path = sectionPaths[href] || '/';
-      const target = document.querySelector(href);
-      const top = target ? Math.max(0, target.offsetTop - 96) : 0;
-      window.scrollTo({ top, behavior: 'smooth' });
+      if (href === '#inicio') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }
       history.pushState({ href }, '', path);
     }
 
