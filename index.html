@@ -1477,23 +1477,7 @@
     navBackdrop.className = 'nav-backdrop';
     document.body.appendChild(navBackdrop);
 
-    // iOS-safe scroll lock: position:fixed preserva scrollY; overflow:hidden lo pierde
-    let _drawerScrollY = 0;
-    function lockBodyScroll() {
-      _drawerScrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${_drawerScrollY}px`;
-      document.body.style.width = '100%';
-    }
-    function unlockBodyScroll() {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      window.scrollTo(0, _drawerScrollY);
-    }
-
     function openDrawer() {
-      lockBodyScroll();
       mainNav.classList.add('menu-open');
       hamburgerBtn.setAttribute('aria-expanded', 'true');
       navDrawer.setAttribute('aria-hidden', 'false');
@@ -1502,7 +1486,6 @@
 
     function closeDrawer() {
       navDrawer.style.opacity = '0';
-      unlockBodyScroll();
       document.body.classList.remove('drawer-open');
       setTimeout(() => {
         mainNav.classList.remove('menu-open');
@@ -1559,20 +1542,31 @@
           drawerHasSubEl && drawerHasSubEl.classList.remove('casos-active');
         }
 
-        // Cerrar drawer y liberar scroll (position:fixed → normal)
-        navDrawer.style.opacity = '0';
-        unlockBodyScroll(); // restaura scroll position antes de navegar
+        // 1. Quitar overflow:hidden PRIMERO — antes de cualquier scroll
         document.body.classList.remove('drawer-open');
         mainNav.classList.remove('menu-open');
         hamburgerBtn.setAttribute('aria-expanded', 'false');
-        setTimeout(() => { navDrawer.setAttribute('aria-hidden', 'true'); navDrawer.style.opacity = ''; }, 350);
+        navDrawer.setAttribute('aria-hidden', 'true');
 
         isScrollingTo = true;
         clearTimeout(scrollEndTimer);
         scrollEndTimer = setTimeout(() => { isScrollingTo = false; updateActiveNav(); }, 2500);
 
-        // Scroll después de que iOS procese el unlock (fuera del touch handler)
-        setTimeout(() => { scrollToSection(href); }, 0);
+        // 2. Scroll fuera del evento touch (iOS requiere esto) con overflow ya libre
+        const path = sectionPaths[href] || '/';
+        setTimeout(() => {
+          if (href === '#inicio') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            const target = document.querySelector(href);
+            if (target) {
+              let absTop = 0, el = target;
+              while (el) { absTop += el.offsetTop; el = el.offsetParent; }
+              window.scrollTo({ top: absTop - 48, behavior: 'smooth' });
+            }
+          }
+          history.replaceState({ href }, '', path);
+        }, 0);
       });
     });
 
