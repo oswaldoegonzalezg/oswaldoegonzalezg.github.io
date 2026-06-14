@@ -216,8 +216,8 @@
     .hero-content{position:relative;z-index:2;width:100%;text-align:center;padding:24px}
   </style>
   <!-- CSS completo — carga no bloqueante -->
-  <link rel="preload" href="styles.css?v=10" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="styles.css?v=10"></noscript>
+  <link rel="preload" href="styles.css?v=11" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css?v=11"></noscript>
 
 </head>
 
@@ -1540,11 +1540,17 @@
           drawerHasSubEl && drawerHasSubEl.classList.remove('casos-active');
         }
 
-        closeDrawer();
+        // Cierre instantáneo — sin animación al navegar, para que el scroll
+        // calcule posición con el DOM estable y sin interferencia del overlay
+        mainNav.classList.remove('menu-open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        navDrawer.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('drawer-open');
+
         isScrollingTo = true;
         clearTimeout(scrollEndTimer);
         scrollEndTimer = setTimeout(() => { isScrollingTo = false; updateActiveNav(); }, 2500);
-        requestAnimationFrame(() => requestAnimationFrame(() => scrollToSection(href)));
+        scrollToSection(href);
       });
     });
 
