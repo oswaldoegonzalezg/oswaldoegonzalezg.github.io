@@ -1530,14 +1530,12 @@
 
     document.querySelectorAll('.drawer-link').forEach(link => {
       link.addEventListener('click', e => {
-        e.preventDefault();
+        // NO preventDefault — scroll 100% nativo del browser (mobile safe)
+        const href = link.getAttribute('href');
 
-        // Marca inmediatamente el ítem como activo
+        // Activo
         document.querySelectorAll('.drawer-link').forEach(a => a.classList.remove('nav-active'));
         link.classList.add('nav-active');
-
-        // Si el link es un sub-ítem de casos, marca también el toggle padre
-        const href = link.getAttribute('href');
         if (href === '#caso-victor' || href === '#caso-imageworks') {
           drawerHasSubEl && drawerHasSubEl.classList.add('casos-active');
         } else {
@@ -1554,18 +1552,9 @@
         clearTimeout(scrollEndTimer);
         scrollEndTimer = setTimeout(() => { isScrollingTo = false; updateActiveNav(); }, 2500);
 
-        // Navegación nativa por hash — 100% confiable en todos los dispositivos.
-        // location.hash usa el mismo mecanismo que <a href="#id">, nunca falla.
-        // history.replaceState limpia la URL al path bonito después.
-        setTimeout(() => {
-          const path = sectionPaths[href] || '/';
-          if (href === '#inicio') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          } else {
-            location.hash = href;
-          }
-          history.replaceState({ href }, '', path);
-        }, 0);
+        // Limpia la URL al path bonito después de que el browser navegó al hash
+        const path = sectionPaths[href] || '/';
+        setTimeout(() => history.replaceState({ href }, '', path), 80);
       });
     });
 
