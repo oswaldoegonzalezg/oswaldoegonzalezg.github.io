@@ -1607,6 +1607,9 @@
       const doFlash = () => {
         btn.classList.add('btn-flash');
         setTimeout(() => { btn.classList.remove('btn-flash'); btn.blur(); }, 350);
+        // Revelar footer al presionar botón de contacto
+        const footer = document.querySelector('footer');
+        if (footer) setTimeout(() => footer.scrollIntoView({ behavior: 'smooth', block: 'end' }), 400);
       };
       btn.addEventListener('click', doFlash);
     });
