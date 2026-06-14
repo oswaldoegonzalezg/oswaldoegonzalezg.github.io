@@ -1525,7 +1525,12 @@
         if (href === '#caso-victor' || href === '#caso-imageworks') {
           drawerHasSubEl && drawerHasSubEl.classList.add('casos-active');
         } else {
-          drawerHasSubEl && drawerHasSubEl.classList.remove('casos-active');
+          if (drawerHasSubEl) {
+            drawerHasSubEl.classList.remove('casos-active');
+            drawerHasSubEl.classList.remove('open');
+            const subToggle = drawerHasSubEl.querySelector('.drawer-sub-toggle');
+            if (subToggle) subToggle.setAttribute('aria-expanded', 'false');
+          }
         }
 
         // 1. Quitar overflow:hidden PRIMERO — antes de cualquier scroll
