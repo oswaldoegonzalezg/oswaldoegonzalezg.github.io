@@ -68,6 +68,9 @@ nav .container{height:48px}
   /* Herramientas: 3 cols en tablet */
   .tools-grid{grid-template-columns:repeat(3,1fr)!important;grid-auto-rows:210px;align-items:stretch;justify-items:stretch;gap:12px}
   .tools-grid .tool-item{width:100%;box-sizing:border-box;justify-content:center}
+  .contact-card{grid-template-columns:1fr;padding:40px 32px;gap:24px}
+  .contact-links{width:100%}
+  .contact-btn{width:100%;justify-content:center;min-height:52px}
   /* Casos: mÃ¡s padding */
   .case-card{padding:40px 36px}
   /* Container max-width adaptado */
