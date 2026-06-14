@@ -216,8 +216,8 @@
     .hero-content{position:relative;z-index:2;width:100%;text-align:center;padding:24px}
   </style>
   <!-- CSS completo — carga no bloqueante -->
-  <link rel="preload" href="styles.css?v=4" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="styles.css?v=4"></noscript>
+  <link rel="preload" href="styles.css?v=5" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css?v=5"></noscript>
 
 </head>
 
@@ -280,6 +280,9 @@
 
     <!-- Mobile drawer (dentro del <nav> para accesibilidad por landmarks) -->
     <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+    <button class="drawer-close" id="drawer-close-btn" aria-label="Cerrar menú">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
     <ul>
       <li class="drawer-home"><a href="#inicio" class="drawer-link">Home</a></li>
       <li><a href="#acerca"       class="drawer-link">Acerca de mí</a></li>
@@ -1499,6 +1502,7 @@
 
     // Cerrar al tocar el backdrop
     navBackdrop.addEventListener('click', closeDrawer);
+    document.getElementById('drawer-close-btn').addEventListener('click', closeDrawer);
 
     // Cerrar con tecla Escape
     document.addEventListener('keydown', e => {
