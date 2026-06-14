@@ -1,5 +1,5 @@
 # robots.txt — oswaldoegonzalezg.vercel.app
-# Actualizado: 2026-06-11
+# Actualizado: 2026-06-14
 
 # Permitir todos los crawlers (Google, Bing, IA)
 User-agent: *
