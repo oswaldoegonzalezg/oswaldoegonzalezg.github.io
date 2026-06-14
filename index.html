@@ -1517,12 +1517,8 @@
       } else {
         const target = document.querySelector(href);
         if (target) {
-          // offsetTop traversal: posición absoluta en el documento,
-          // no afectada por overflow:hidden ni scrollY (fix iOS)
-          let absTop = 0;
-          let el = target;
-          while (el) { absTop += el.offsetTop; el = el.offsetParent; }
-          window.scrollTo({ top: absTop - 48, behavior: 'smooth' });
+          // scroll-margin-top:48px en CSS — scrollIntoView lo respeta automáticamente
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       }
       history.pushState({ href }, '', path);
@@ -1553,20 +1549,7 @@
         scrollEndTimer = setTimeout(() => { isScrollingTo = false; updateActiveNav(); }, 2500);
 
         // 2. Scroll fuera del evento touch (iOS requiere esto) con overflow ya libre
-        const path = sectionPaths[href] || '/';
-        setTimeout(() => {
-          if (href === '#inicio') {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          } else {
-            const target = document.querySelector(href);
-            if (target) {
-              let absTop = 0, el = target;
-              while (el) { absTop += el.offsetTop; el = el.offsetParent; }
-              window.scrollTo({ top: absTop - 48, behavior: 'smooth' });
-            }
-          }
-          history.replaceState({ href }, '', path);
-        }, 0);
+        setTimeout(() => { scrollToSection(href); }, 0);
       });
     });
 
