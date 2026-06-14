@@ -1530,7 +1530,7 @@
 
     document.querySelectorAll('.drawer-link').forEach(link => {
       link.addEventListener('click', e => {
-        // NO preventDefault — scroll 100% nativo del browser (mobile safe)
+        e.preventDefault();
         const href = link.getAttribute('href');
 
         // Activo
@@ -1542,19 +1542,31 @@
           drawerHasSubEl && drawerHasSubEl.classList.remove('casos-active');
         }
 
-        // Cierra drawer
+        // 1. Quitar overflow:hidden PRIMERO — antes de cualquier scroll
+        document.body.classList.remove('drawer-open');
         mainNav.classList.remove('menu-open');
         hamburgerBtn.setAttribute('aria-expanded', 'false');
         navDrawer.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('drawer-open');
 
         isScrollingTo = true;
         clearTimeout(scrollEndTimer);
         scrollEndTimer = setTimeout(() => { isScrollingTo = false; updateActiveNav(); }, 2500);
 
-        // Limpia la URL al path bonito después de que el browser navegó al hash
+        // 2. Scroll fuera del evento touch (iOS requiere esto) con overflow ya libre
         const path = sectionPaths[href] || '/';
-        setTimeout(() => history.replaceState({ href }, '', path), 80);
+        setTimeout(() => {
+          if (href === '#inicio') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            const target = document.querySelector(href);
+            if (target) {
+              let absTop = 0, el = target;
+              while (el) { absTop += el.offsetTop; el = el.offsetParent; }
+              window.scrollTo({ top: absTop - 48, behavior: 'smooth' });
+            }
+          }
+          history.replaceState({ href }, '', path);
+        }, 0);
       });
     });
 
