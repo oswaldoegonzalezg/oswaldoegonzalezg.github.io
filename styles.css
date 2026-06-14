@@ -21,49 +21,49 @@ nav.transparent #theme-toggle:hover{color:var(--accent)!important;background:rgb
 /* === Drawer X: SVG nítido sin borde === */
 .drawer-close svg{shape-rendering:geometricPrecision;stroke-width:2}
 
-/* === Drawer sub-list: mÃ¡s espacio para evitar choque con Herramientas === */
+/* === Drawer sub-list: más espacio para evitar choque con Herramientas === */
 .drawer-has-sub.open .drawer-sub-list{max-height:300px!important}
 .drawer-sub-list{padding-bottom:8px!important}
 .drawer-sub-list li a{min-height:60px!important;padding:0 28px 0 32px!important}
 
 /* === Light mode nav: elementos siempre visibles === */
-/* Nav sÃ³lido (scrolled) en modo claro */
+/* Nav sólido (scrolled) en modo claro */
 :root.light nav:not(.transparent) .nav-logo{color:#111!important}
 :root.light nav:not(.transparent) .nav-hamburger span{background:#111!important}
 :root.light nav:not(.transparent) #theme-toggle{color:var(--accent)!important}
-/* Nav transparente (hero) en modo claro â€” sobre overlay oscuro */
+/* Nav transparente (hero) en modo claro — sobre overlay oscuro */
 :root.light nav.transparent .nav-logo{color:#fff!important}
 :root.light nav.transparent .nav-hamburger span{background:#fff!important}
 :root.light nav.transparent #theme-toggle{color:var(--accent)!important}
 
 /* ===================================================================
-   UI/UX PRO MAX â€” Mejoras responsive mobile Â· tablet Â· desktop
+   UI/UX PRO MAX — Mejoras responsive mobile · tablet · desktop
    =================================================================== */
 
 /* 1. touch-action:manipulation en todos los interactivos
       Elimina el 300ms tap delay en iOS (Apple HIG) */
 a,button,[role=button],.tool-item,.case-card,.faq-item{touch-action:manipulation}
 
-/* 2. Nav â€” safe area top para notch / Dynamic Island (iOS HIG) */
+/* 2. Nav — safe area top para notch / Dynamic Island (iOS HIG) */
 nav{padding-top:env(safe-area-inset-top,0px);height:calc(48px + env(safe-area-inset-top,0px))}
 nav .container{height:48px}
 
-/* 3. Press feedback en cards â€” scale 0.98 al tocar (Material MD state) */
+/* 3. Press feedback en cards — scale 0.98 al tocar (Material MD state) */
 .tool-item:active,.faq-item:active{transform:scale(0.98);transition-duration:80ms}
 
-/* 4. MOBILE (â‰¤480px) â€” espaciado y fuentes optimizados */
+/* 4. MOBILE (≤480px) — espaciado y fuentes optimizados */
 @media(max-width:480px){
-  /* Drawer sub-items: 64px touch target mÃ­nimo */
+  /* Drawer sub-items: 64px touch target mínimo */
   .drawer-sub-list li a{min-height:64px!important}
-  /* SecciÃ³n padding compacto */
+  /* Sección padding compacto */
   section{padding:40px 0}
-  /* Container gutter mÃ¡s estrecho */
+  /* Container gutter más estrecho */
   .container{padding:0 16px}
-  /* Herramientas grid: 2 cols en mobile pequeÃ±o */
+  /* Herramientas grid: 2 cols en mobile pequeño */
 
 }
 
-/* 5. TABLET (768pxâ€“1024px) â€” layout adaptativo */
+/* 5. TABLET (768px–1024px) — layout adaptativo */
 @media(min-width:768px) and (max-width:1024px){
   /* Herramientas: 3 cols en tablet */
   .tools-grid{grid-template-columns:repeat(3,1fr)!important;grid-auto-rows:210px;align-items:stretch;justify-items:stretch;gap:12px}
@@ -71,34 +71,34 @@ nav .container{height:48px}
   .contact-card{grid-template-columns:1fr;padding:40px 32px;gap:24px}
   .contact-links{width:100%}
   .contact-btn{width:100%;justify-content:center;min-height:52px}
-  /* Casos: mÃ¡s padding */
+  /* Casos: más padding */
   .case-card{padding:40px 36px}
   /* Container max-width adaptado */
   .container{max-width:720px}
-  /* Acerca: foto mÃ¡s grande en tablet */
+  /* Acerca: foto más grande en tablet */
   .acerca-photo{width:180px!important;height:180px!important}
 }
 
-/* 6. DESKTOP (>1024px) â€” max legibilidad */
+/* 6. DESKTOP (>1024px) — max legibilidad */
 @media(min-width:1025px){
-  /* LÃ­nea de texto mÃ¡x 72ch en descripciones */
+  /* Línea de texto máx 72ch en descripciones */
   .section-desc{max-width:640px}
 
 }
 
-/* 7. Inputs del formulario â€” min 44px touch target (Apple HIG) */
+/* 7. Inputs del formulario — min 44px touch target (Apple HIG) */
 input,textarea,select{min-height:44px;font-size:16px}
 
-/* 8. Focus-visible mejorado â€” mÃ¡s visible en modo claro */
+/* 8. Focus-visible mejorado — más visible en modo claro */
 :root.light :focus-visible{outline-color:#e8001d;outline-width:2px}
 
-/* 9. Landscape mobile â€” nav no tapa contenido */
+/* 9. Landscape mobile — nav no tapa contenido */
 @media(max-height:500px) and (orientation:landscape){
   nav{height:44px}
 
 }
 
-/* === Touch-active: case-card y metric â€” espeja el hover en mobile/tablet === */
+/* === Touch-active: case-card y metric — espeja el hover en mobile/tablet === */
 .case-card.touch-active{border-color:rgba(232,0,29,.25);box-shadow:0 16px 48px rgba(232,0,29,.06)}
 
 
