@@ -216,8 +216,8 @@
     .hero-content{position:relative;z-index:2;width:100%;text-align:center;padding:24px}
   </style>
   <!-- CSS completo — carga no bloqueante -->
-  <link rel="preload" href="styles.css?v=11" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="styles.css?v=11"></noscript>
+  <link rel="preload" href="styles.css?v=12" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css?v=12"></noscript>
 
 </head>
 
@@ -1517,8 +1517,12 @@
       } else {
         const target = document.querySelector(href);
         if (target) {
-          const top = target.getBoundingClientRect().top + window.scrollY - 48;
-          window.scrollTo({ top, behavior: 'smooth' });
+          // offsetTop traversal: posición absoluta en el documento,
+          // no afectada por overflow:hidden ni scrollY (fix iOS)
+          let absTop = 0;
+          let el = target;
+          while (el) { absTop += el.offsetTop; el = el.offsetParent; }
+          window.scrollTo({ top: absTop - 48, behavior: 'smooth' });
         }
       }
       history.pushState({ href }, '', path);
