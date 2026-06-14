@@ -14,3 +14,9 @@ nav.transparent #theme-toggle:hover{color:var(--accent)!important;background:rgb
 
 /* === Drawer X: SVG n�tido sin borde === */
 .drawer-close svg{shape-rendering:geometricPrecision;stroke-width:2}
+
+/* === Quitar números de sección (01,02…) en todas las versiones === */
+.section-num{display:none!important}
+
+/* === Acerca tablet: reducir padding top para que marquee entre en viewport === */
+@media(max-width:900px){.acerca-profile{padding-top:40px!important}}
