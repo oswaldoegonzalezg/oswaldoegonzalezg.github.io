@@ -66,7 +66,8 @@ nav .container{height:48px}
 /* 5. TABLET (768pxâ€“1024px) â€” layout adaptativo */
 @media(min-width:768px) and (max-width:1024px){
   /* Herramientas: 3 cols en tablet */
-  .tools-grid{grid-template-columns:repeat(3,1fr)!important}
+  .tools-grid{grid-template-columns:repeat(3,1fr)!important;grid-auto-rows:210px;align-items:stretch}
+  .tools-grid .tool-item{justify-content:center}
   /* Casos: mÃ¡s padding */
   .case-card{padding:40px 36px}
   /* Container max-width adaptado */
