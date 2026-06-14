@@ -14,3 +14,8 @@ nav.transparent #theme-toggle:hover{color:var(--accent)!important;background:rgb
 
 /* === Drawer X: SVG nítido sin borde === */
 .drawer-close svg{shape-rendering:geometricPrecision;stroke-width:2}
+
+/* === Drawer sub-list: mÃ¡s espacio para evitar choque con Herramientas === */
+.drawer-has-sub.open .drawer-sub-list{max-height:300px!important}
+.drawer-sub-list{padding-bottom:8px!important}
+.drawer-sub-list li a{min-height:60px!important;padding:0 28px 0 32px!important}
