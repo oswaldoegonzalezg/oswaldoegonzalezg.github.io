@@ -11,7 +11,7 @@ El usuario tiene su página web personal en GitHub Pages.
 
 - **Repositorio GitHub:** https://github.com/oswaldoegonzalezg/oswaldoegonzalezg.github.io
 - **URL pública:** https://oswaldoegonzalezg.github.io
-- **Carpeta local:** `I:\My Drive\Pagina Web Github`
+- **Carpeta local:** `I:\My Drive\Pagina Web`
 - **Rama principal:** `main`
 - **Archivos clave:** `index.html`, `styles.css`, `assets/` (imágenes, logos, fuentes, métricas)
 
