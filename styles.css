@@ -19,3 +19,13 @@ nav.transparent #theme-toggle:hover{color:var(--accent)!important;background:rgb
 .drawer-has-sub.open .drawer-sub-list{max-height:300px!important}
 .drawer-sub-list{padding-bottom:8px!important}
 .drawer-sub-list li a{min-height:60px!important;padding:0 28px 0 32px!important}
+
+/* === Light mode nav: elementos siempre visibles === */
+/* Nav sólido (scrolled) en modo claro */
+:root.light nav:not(.transparent) .nav-logo{color:#111!important}
+:root.light nav:not(.transparent) .nav-hamburger span{background:#111!important}
+:root.light nav:not(.transparent) #theme-toggle{color:var(--accent)!important}
+/* Nav transparente (hero) en modo claro — sobre overlay oscuro */
+:root.light nav.transparent .nav-logo{color:#fff!important}
+:root.light nav.transparent .nav-hamburger span{background:#fff!important}
+:root.light nav.transparent #theme-toggle{color:var(--accent)!important}
