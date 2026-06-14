@@ -1120,16 +1120,6 @@
     );
     document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
     document.querySelectorAll('.metric').forEach(el => { el.classList.add('reveal'); revealObs.observe(el); });
-    document.querySelectorAll('.section-num').forEach(el => {
-      const label = el.closest('.section-label');
-      if (label) {
-        const deco = document.createElement('span');
-        deco.className = 'section-deco-num';
-        deco.setAttribute('aria-hidden', 'true');
-        deco.textContent = el.textContent.trim();
-        label.parentNode.insertBefore(deco, label);
-      }
-    });
 
     /* ── Sección activa en nav (scroll-based, más preciso) ── */
     const navSections = ['inicio','acerca','casos','herramientas','faq','contacto'];
