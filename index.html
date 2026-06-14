@@ -216,8 +216,8 @@
     .hero-content{position:relative;z-index:2;width:100%;text-align:center;padding:24px}
   </style>
   <!-- CSS completo — carga no bloqueante -->
-  <link rel="preload" href="styles.css?v=13" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="styles.css?v=13"></noscript>
+  <link rel="preload" href="styles.css?v=14" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css?v=14"></noscript>
 
 </head>
 
@@ -1554,9 +1554,18 @@
         clearTimeout(scrollEndTimer);
         scrollEndTimer = setTimeout(() => { isScrollingTo = false; updateActiveNav(); }, 2500);
 
-        // Igual que desktop nav: diferir fuera del event handler para que
-        // iOS no bloquee window.scrollTo tras manipulación del DOM
-        setTimeout(() => scrollToSection(href), 0);
+        // Navegación nativa por hash — 100% confiable en todos los dispositivos.
+        // location.hash usa el mismo mecanismo que <a href="#id">, nunca falla.
+        // history.replaceState limpia la URL al path bonito después.
+        setTimeout(() => {
+          const path = sectionPaths[href] || '/';
+          if (href === '#inicio') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            location.hash = href;
+          }
+          history.replaceState({ href }, '', path);
+        }, 0);
       });
     });
 
