@@ -88,3 +88,10 @@ input,textarea,select{min-height:44px;font-size:16px}
   nav{height:44px}
   .hero{min-height:100svh}
 }
+
+/* === Touch-active: case-card y metric — espeja el hover en mobile/tablet === */
+.case-card.touch-active{border-color:rgba(232,0,29,.3);box-shadow:0 12px 40px rgba(232,0,29,.06)}
+.case-card.touch-active::before{opacity:1}
+.case-card.touch-active .case-badge{transform:translateY(-2px)}
+.metric.touch-active{border-color:rgba(232,0,29,.3);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,0,29,.08)}
+.metric.touch-active .metric-value{color:var(--accent)}

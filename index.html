@@ -216,8 +216,8 @@
     .hero-content{position:relative;z-index:2;width:100%;text-align:center;padding:24px}
   </style>
   <!-- CSS completo — carga no bloqueante -->
-  <link rel="preload" href="styles.css?v=23" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="styles.css?v=23"></noscript>
+  <link rel="preload" href="styles.css?v=24" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css?v=24"></noscript>
 
 </head>
 
@@ -1630,8 +1630,9 @@
       });
     }
 
-    /* ── Tool items touch toggle (mobile/tablet) ── */
+    /* ── Touch feedback uniforme: tool-item, case-card, metric ── */
     if (window.matchMedia('(hover: none)').matches) {
+      // Tool items — toggle persistente (tap para ver info, tap fuera para cerrar)
       document.querySelectorAll('.tool-item').forEach(item => {
         item.addEventListener('click', e => {
           const isActive = item.classList.contains('touch-active');
@@ -1642,6 +1643,13 @@
       });
       document.addEventListener('click', () => {
         document.querySelectorAll('.tool-item.touch-active').forEach(el => el.classList.remove('touch-active'));
+      });
+
+      // Case cards y metrics — flash de feedback al tocar
+      document.querySelectorAll('.case-card, .metric').forEach(card => {
+        card.addEventListener('touchstart', () => card.classList.add('touch-active'), { passive: true });
+        card.addEventListener('touchend', () => setTimeout(() => card.classList.remove('touch-active'), 200), { passive: true });
+        card.addEventListener('touchcancel', () => card.classList.remove('touch-active'), { passive: true });
       });
     }
 
