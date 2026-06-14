@@ -216,8 +216,8 @@
     .hero-content{position:relative;z-index:2;width:100%;text-align:center;padding:24px}
   </style>
   <!-- CSS completo — carga no bloqueante -->
-  <link rel="preload" href="styles.css?v=25" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="styles.css?v=25"></noscript>
+  <link rel="preload" href="styles.css?v=26" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css?v=26"></noscript>
 
 </head>
 
@@ -1595,21 +1595,12 @@
       heroScrollDown.blur();
     });
 
-    /* ── Quitar foco de botones de contacto al volver a la página ── */
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'visible') {
-        document.querySelectorAll('.contact-btn, .hero-scroll-down').forEach(el => el.blur());
-      }
-    });
 
     /* ── Al tocar botón de contacto: flash rojo breve y se desactiva ── */
     document.querySelectorAll('.contact-btn').forEach(btn => {
       const doFlash = () => {
         btn.classList.add('btn-flash');
-        setTimeout(() => { btn.classList.remove('btn-flash'); btn.blur(); }, 350);
-        // Revelar footer al presionar botón de contacto
-        const footer = document.querySelector('footer');
-        if (footer) setTimeout(() => footer.scrollIntoView({ behavior: 'smooth', block: 'end' }), 400);
+        setTimeout(() => { btn.classList.remove('btn-flash'); }, 350);
       };
       btn.addEventListener('click', doFlash);
     });
