@@ -29,3 +29,64 @@ nav.transparent #theme-toggle:hover{color:var(--accent)!important;background:rgb
 :root.light nav.transparent .nav-logo{color:#fff!important}
 :root.light nav.transparent .nav-hamburger span{background:#fff!important}
 :root.light nav.transparent #theme-toggle{color:var(--accent)!important}
+
+/* ===================================================================
+   UI/UX PRO MAX — Mejoras responsive mobile · tablet · desktop
+   =================================================================== */
+
+/* 1. touch-action:manipulation en todos los interactivos
+      Elimina el 300ms tap delay en iOS (Apple HIG) */
+a,button,[role=button],.tool-item,.case-card,.faq-item{touch-action:manipulation}
+
+/* 2. Nav — safe area top para notch / Dynamic Island (iOS HIG) */
+nav{padding-top:env(safe-area-inset-top,0px);height:calc(48px + env(safe-area-inset-top,0px))}
+nav .container{height:48px}
+
+/* 3. Press feedback en cards — scale 0.98 al tocar (Material MD state) */
+.case-card:active,.tool-item:active,.faq-item:active{transform:scale(0.98);transition-duration:80ms}
+
+/* 4. MOBILE (≤480px) — espaciado y fuentes optimizados */
+@media(max-width:480px){
+  /* Drawer sub-items: 64px touch target mínimo */
+  .drawer-sub-list li a{min-height:64px!important}
+  /* Hero headline legible en iPhone SE (375px) */
+  .hero-title{font-size:clamp(2.4rem,11vw,4rem)}
+  /* Sección padding compacto */
+  section{padding:40px 0}
+  /* Container gutter más estrecho */
+  .container{padding:0 16px}
+  /* Herramientas grid: 2 cols en mobile pequeño */
+  .tools-grid{grid-template-columns:repeat(2,1fr)!important;gap:12px!important}
+}
+
+/* 5. TABLET (768px–1024px) — layout adaptativo */
+@media(min-width:768px) and (max-width:1024px){
+  /* Herramientas: 3 cols en tablet */
+  .tools-grid{grid-template-columns:repeat(3,1fr)!important}
+  /* Casos: más padding */
+  .case-card{padding:40px 36px}
+  /* Container max-width adaptado */
+  .container{max-width:720px}
+  /* Acerca: foto más grande en tablet */
+  .acerca-photo{width:180px!important;height:180px!important}
+}
+
+/* 6. DESKTOP (>1024px) — max legibilidad */
+@media(min-width:1025px){
+  /* Línea de texto máx 72ch en descripciones */
+  .section-desc{max-width:640px}
+  /* Hero subtitle con max legible */
+  .hero-sub{max-width:580px}
+}
+
+/* 7. Inputs del formulario — min 44px touch target (Apple HIG) */
+input,textarea,select{min-height:44px;font-size:16px}
+
+/* 8. Focus-visible mejorado — más visible en modo claro */
+:root.light :focus-visible{outline-color:#e8001d;outline-width:2px}
+
+/* 9. Landscape mobile — nav no tapa contenido */
+@media(max-height:500px) and (orientation:landscape){
+  nav{height:44px}
+  .hero{min-height:100svh}
+}
