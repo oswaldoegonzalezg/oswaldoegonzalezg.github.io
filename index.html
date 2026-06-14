@@ -49,6 +49,7 @@
   <meta property="og:image" content="https://oswaldoegonzalezg.vercel.app/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
   <meta property="og:image:alt" content="Osvaldo González, Social Media Manager en Bogotá, Colombia" />
 
   <!-- Structured Data -->
@@ -788,8 +789,8 @@
                 <div class="pauta-item">
                   <p class="pauta-label">Comentarios en el anuncio</p>
                   <div class="pauta-img-wrap" role="button" tabindex="0"
-                    onclick="openLightbox('assets/Pauta-Image-Works/Comentarios_pauta_image_works.webp','Comentarios en el anuncio · Image Works')"
-                    onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/Pauta-Image-Works/Comentarios_pauta_image_works.webp','Comentarios en el anuncio · Image Works')"
+                    data-lightbox-src="assets/Pauta-Image-Works/Comentarios_pauta_image_works.webp"
+                    data-lightbox-caption="Comentarios en el anuncio · Image Works"
                     aria-label="Ver imagen: Comentarios en el anuncio de pauta">
                     <img
                       src="assets/Pauta-Image-Works/Comentarios_pauta_image_works.webp"
@@ -823,14 +824,16 @@
               <!-- Campañas -->
               <div class="email-gallery email-gallery--mt">
                 <div class="email-thumb" role="button" tabindex="0"
-                  onclick="openLightbox('assets/campanas-email/Cinco_de_mayo_email_image.webp','Campaña Cinco de Mayo · Image Works',[{src:'assets/campanas-email/Cinco_de_mayo_email_image.webp',caption:'Email marketing Cinco de Mayo — Image Works Branding Solutions · Restaurantes EE. UU.'},{src:'assets/campanas-email/winter_image_works_image.webp',caption:'Email marketing campaña Winter — Image Works Branding Solutions · Restaurantes EE. UU.'}])"
-                  onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/campanas-email/Cinco_de_mayo_email_image.webp','Campaña Cinco de Mayo · Image Works',[{src:'assets/campanas-email/Cinco_de_mayo_email_image.webp',caption:'Email marketing Cinco de Mayo — Image Works Branding Solutions · Restaurantes EE. UU.'},{src:'assets/campanas-email/winter_image_works_image.webp',caption:'Email marketing campaña Winter — Image Works Branding Solutions · Restaurantes EE. UU.'}])"
+                  data-lightbox-src="assets/campanas-email/Cinco_de_mayo_email_image.webp"
+                  data-lightbox-caption="Campaña Cinco de Mayo · Image Works"
+                  data-lightbox-gallery='[{"src":"assets/campanas-email/Cinco_de_mayo_email_image.webp","caption":"Email marketing Cinco de Mayo — Image Works Branding Solutions · Restaurantes EE. UU."},{"src":"assets/campanas-email/winter_image_works_image.webp","caption":"Email marketing campaña Winter — Image Works Branding Solutions · Restaurantes EE. UU."}]'
                   aria-label="Ver imagen: Campaña Cinco de Mayo">
                   <img src="assets/campanas-email/Cinco_de_mayo_email_image.webp" alt="Diseño de email marketing para campaña Cinco de Mayo de Image Works, agencia de branding para restaurantes en Estados Unidos" loading="lazy"  width="1024" height="1344"/>
                 </div>
                 <div class="email-thumb" role="button" tabindex="0"
-                  onclick="openLightbox('assets/campanas-email/winter_image_works_image.webp','Campaña Winter · Image Works',[{src:'assets/campanas-email/Cinco_de_mayo_email_image.webp',caption:'Email marketing Cinco de Mayo — Image Works Branding Solutions · Restaurantes EE. UU.'},{src:'assets/campanas-email/winter_image_works_image.webp',caption:'Email marketing campaña Winter — Image Works Branding Solutions · Restaurantes EE. UU.'}])"
-                  onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox('assets/campanas-email/winter_image_works_image.webp','Campaña Winter · Image Works',[{src:'assets/campanas-email/Cinco_de_mayo_email_image.webp',caption:'Email marketing Cinco de Mayo — Image Works Branding Solutions · Restaurantes EE. UU.'},{src:'assets/campanas-email/winter_image_works_image.webp',caption:'Email marketing campaña Winter — Image Works Branding Solutions · Restaurantes EE. UU.'}])"
+                  data-lightbox-src="assets/campanas-email/winter_image_works_image.webp"
+                  data-lightbox-caption="Campaña Winter · Image Works"
+                  data-lightbox-gallery='[{"src":"assets/campanas-email/Cinco_de_mayo_email_image.webp","caption":"Email marketing Cinco de Mayo — Image Works Branding Solutions · Restaurantes EE. UU."},{"src":"assets/campanas-email/winter_image_works_image.webp","caption":"Email marketing campaña Winter — Image Works Branding Solutions · Restaurantes EE. UU."}]'
                   aria-label="Ver imagen: Campaña Winter">
                   <img src="assets/campanas-email/winter_image_works_image.webp" alt="Diseño de email marketing para campaña Winter de Image Works, estrategia de email para restaurantes en Estados Unidos" loading="lazy"  width="1563" height="2746"/>
                 </div>
@@ -959,7 +962,6 @@
             </button>
             <div class="faq-body" id="faq-body-3"><p>Con Notion y Trello. Mapeo fechas, entregables y responsables de cada proyecto. Si hay equipo, el tablero es compartido, si trabajo solo, me ayuda a no perder nada de vista.</p></div>
           </div>
-
 
           <div class="faq-item">
             <button class="faq-trigger" aria-expanded="false" aria-controls="faq-body-4">
