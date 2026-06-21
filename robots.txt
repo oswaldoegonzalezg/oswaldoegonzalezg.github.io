@@ -1,5 +1,5 @@
-# robots.txt — oswaldoegonzalezg.vercel.app
-# Actualizado: 2026-06-14
+# robots.txt — osvaldogonzalez.vercel.app
+# Actualizado: 2026-06-21
 
 # Permitir todos los crawlers (Google, Bing, IA)
 User-agent: *
@@ -25,4 +25,4 @@ User-agent: Google-Extended
 Allow: /
 
 # Sitemap
-Sitemap: https://oswaldoegonzalezg.vercel.app/sitemap.xml
+Sitemap: https://osvaldogonzalez.vercel.app/sitemap.xml
