@@ -58,8 +58,6 @@ nav .container{height:48px}
   section{padding:40px 0}
   /* Container gutter más estrecho */
   .container{padding:0 16px}
-  /* Herramientas grid: 2 cols en mobile pequeño */
-
 }
 
 /* 5. TABLET (768px–1024px) — layout adaptativo */
