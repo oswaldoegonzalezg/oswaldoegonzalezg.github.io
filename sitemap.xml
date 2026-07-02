@@ -5,7 +5,7 @@
   <!-- Página principal -->
   <url>
     <loc>https://osvaldogonzalez.vercel.app/</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://osvaldogonzalez.vercel.app/" />
@@ -14,35 +14,35 @@
   <!-- Secciones (URLs limpias con rewrite) -->
   <url>
     <loc>https://osvaldogonzalez.vercel.app/acerca</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://osvaldogonzalez.vercel.app/casos</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://osvaldogonzalez.vercel.app/herramientas</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://osvaldogonzalez.vercel.app/faq</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://osvaldogonzalez.vercel.app/contacto</loc>
-    <lastmod>2026-06-21</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
